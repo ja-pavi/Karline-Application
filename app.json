@@ -3,6 +3,7 @@
     "name": "KleinCarpool",
     "slug": "KleinCarpool",
     "version": "1.0.0",
+    "owner": "k-carpool",
     "orientation": "portrait",
     "icon": "./assets/logo.png",
     "splash": {
