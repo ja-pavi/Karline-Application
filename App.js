@@ -5,7 +5,7 @@ import RNPickerSelect from 'react-native-picker-select';
 export default function App() {
   const [name, setName] = useState('');
   const [age, setAge] = useState('');
-  const [language, setLanguage] = useState("");
+  const [grade, setGrade] = useState("");
 
   return (
     <View style={styles.container}>
@@ -22,6 +22,7 @@ export default function App() {
           { label: "4th", value: "4th Grade" },
           { label: "5th", value: "5th Grade" },
       ]}
+      onValueChange={(value) => setGrade(value)}
       />
       <Text>Enter name:</Text>
       <TextInput 
@@ -35,7 +36,7 @@ export default function App() {
         style={styles.input}
         onChangeText={(value) => setAge(value)} />
 
-      <Text style={styles.result}>Name: {name}, Age: {age}</Text>
+      <Text style={styles.result}>Name: {name}, Age: {age}, Grade Level: {grade}</Text>
     </View>
   );
 }
