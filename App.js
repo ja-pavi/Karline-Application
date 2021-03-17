@@ -1,6 +1,32 @@
 import React, { useState } from 'react';
 import { StyleSheet, Text, SafeAreaView, View, TextInput } from 'react-native';
 import RNPickerSelect from 'react-native-picker-select';
+import 'react-native-gesture-handler';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+
+const Stack = createStackNavigator();
+
+const MyStack = () => {
+  return (
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen
+          name="AddStudent"
+          component={AddStudentScreen}
+          options={{ title: 'Welcome' }}
+        />
+        <Stack.Screen 
+          name="SignIn" 
+          component={SignInScreen} 
+          options={{ title: "Sign In" }}
+        />
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
+};
+
+export default App;
 
 export default function App() {
   const [name, setName] = useState('');
