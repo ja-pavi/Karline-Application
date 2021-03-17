@@ -9,10 +9,10 @@ export default function App() {
 
   return (
     <View style={styles.container}>
-  <Text>Hello World!</Text>
   <RNPickerSelect
       onValueChange={(value) => console.log(value)}
       useNativeAndroidPickerStyle={false}
+<<<<<<< HEAD
       placeholder={{ label: "Select your student's grade level", value: null }}
       items={[
           { label: "Kindergarten", value: "Kindergarten" },
@@ -24,6 +24,18 @@ export default function App() {
       ]}
       onValueChange={(value) => setGrade(value)}
       />
+=======
+      placeholder={{ label: "Select your students' grade level", value: null }}
+      items={[
+          { label: "Kindergarten", value: "Kindergarten" },
+          { label: "1st Grade", value: "1st Grade" },
+          { label: "2nd Grade", value: "2nd Grade" },
+          { label: "3rd Grade", value: "3rd Grade" },
+          { label: "4th Grade", value: "4th Grade" },
+          { label: "5th Grade", value: "5th Grade" },
+      ]}
+      onChangeText={(value) => setGrade(grade)} />
+>>>>>>> add-students
       <Text>Enter name:</Text>
       <TextInput 
         placeholder='e.g. Joshua Le' 
@@ -36,7 +48,14 @@ export default function App() {
         style={styles.input}
         onChangeText={(value) => setAge(value)} />
 
+<<<<<<< HEAD
       <Text style={styles.result}>Name: {name}, Age: {age}, Grade Level: {grade}</Text>
+=======
+      <Text style={styles.result}>
+        Name: {name}
+        Age: {age}
+        Grade Level: {grade}</Text>
+>>>>>>> add-students
     </View>
   );
 }
