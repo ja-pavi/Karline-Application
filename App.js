@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { StyleSheet, Text, View, TextInput } from 'react-native';
+import { StyleSheet, Text, SafeAreaView, View, TextInput } from 'react-native';
 import RNPickerSelect from 'react-native-picker-select';
 
 export default function App() {
@@ -8,7 +8,8 @@ export default function App() {
   const [language, setLanguage] = useState("");
 
   return (
-    <View style={styles.container}>
+
+  <SafeAreaView style={styles.container}>
   <Text>Hello World!</Text>
   <RNPickerSelect
       onValueChange={(value) => console.log(value)}
@@ -36,7 +37,7 @@ export default function App() {
         onChangeText={(value) => setAge(value)} />
 
       <Text style={styles.result}>Name: {name}, Age: {age}</Text>
-    </View>
+    </SafeAreaView>
   );
 }
 
