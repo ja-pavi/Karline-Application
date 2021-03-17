@@ -13,14 +13,14 @@ export default function App() {
   <RNPickerSelect
       onValueChange={(value) => console.log(value)}
       useNativeAndroidPickerStyle={false}
-      placeholder={{ label: "Select your favourite language", value: null }}
+      placeholder={{ label: "Select your student's grade level", value: null }}
       items={[
-          { label: "JavaScript", value: "JavaScript" },
-          { label: "TypeStript", value: "TypeStript" },
-          { label: "Python", value: "Python" },
-          { label: "Java", value: "Java" },
-          { label: "C++", value: "C++" },
-          { label: "C", value: "C" },
+          { label: "Kindergarten", value: "Kindergarten" },
+          { label: "1st", value: "1st Grade" },
+          { label: "2nd", value: "2nd Grade" },
+          { label: "3rd", value: "3rd Grade" },
+          { label: "4th", value: "4th Grade" },
+          { label: "5th", value: "5th Grade" },
       ]}
       />
       <Text>Enter name:</Text>
