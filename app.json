@@ -3,8 +3,9 @@
     "name": "KleinCarpool",
     "slug": "KleinCarpool",
     "version": "1.0.0",
+    "owner": "k-carpool",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/logo.png",
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "contain",
@@ -28,6 +29,7 @@
     "web": {
       "favicon": "./assets/favicon.png"
     },
-    "description": ""
+    "description": "We are a team of four seniors from Klein High School, and we have recently developed a concept for a carpooling app during the annual Klein Hacks hackathon earlier this month, at which we won first place. The inspiration behind our app, Klein Carpool, has come from many of our team members’ experiences of getting caught up in traffic jams every afternoon due to long carpool pick-up lines that accompany elementary school dismissals. Realizing that the elementary schools in our district are still currently using the same “car number” system that has been in place since we were kids—over 25 years ago—we wanted to create an easier, faster, and safer way to carpool. Thus, we created Klein Carpool.",
+    "githubUrl": "https://github.com/ja-pavi/KleinCarpool"
   }
 }
