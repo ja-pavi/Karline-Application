@@ -9,11 +9,23 @@ export default function App() {
 
   return (
   <SafeAreaView style={styles.container}>
+          <Text>Enter name:</Text>
+      <TextInput 
+        placeholder='Name' 
+        style={styles.input}
+        onChangeText={(value) => setName(value)} />
+
+      <Text>Enter age:</Text>
+      <TextInput 
+        placeholder='Age' 
+        style={styles.input}
+        onChangeText={(value) => setAge(value)} />
+  <Text>Enter student's grade: </Text>
+  <View style={{ borderWidth: 1.5, borderColor: '#3690a5', borderRadius: 4, padding: 8, margin: 10, width: 200}}>
   <RNPickerSelect
-      style = {styles.input}
       onValueChange={(value) => console.log(value)}
       useNativeAndroidPickerStyle={false}
-      placeholder={{ label: "Select your students' grade level", value: null }}
+      placeholder={{ label: "Grade Level", value: "Grade Level"}}
       items={[
           { label: "Kindergarten", value: "Kindergarten" },
           { label: "1st", value: "1st Grade" },
@@ -24,19 +36,8 @@ export default function App() {
       ]}
       onValueChange={(value) => setGrade(value)}
       />
-      <Text>Enter name:</Text>
-      <TextInput 
-        placeholder='e.g. Joshua Le' 
-        style={styles.input}
-        onChangeText={(value) => setName(value)} />
-
-      <Text>Enter age:</Text>
-      <TextInput 
-        placeholder='e.g. 17' 
-        style={styles.input}
-        onChangeText={(value) => setAge(value)} />
-
-      <Text style={styles.result}>Name: {name}, Age: {age}, Grade Level: {grade}</Text>
+  </View>
+      <Text>Name: {name} {'\n'}Age: {age} {'\n'}Grade Level: {grade}</Text>
     </SafeAreaView>
   );
 }
@@ -50,6 +51,7 @@ const styles = StyleSheet.create({
   },
   input: {
     borderWidth: 1.5,
+    borderRadius: 4,
     borderColor: '#3690a5',
     padding: 8,
     margin: 10,
