@@ -1,13 +1,28 @@
 import React, { useState } from 'react';
 import { StyleSheet, Text, View, TextInput } from 'react-native';
+import RNPickerSelect from 'react-native-picker-select';
 
 export default function App() {
   const [name, setName] = useState('');
   const [age, setAge] = useState('');
+  const [language, setLanguage] = useState("");
 
   return (
     <View style={styles.container}>
-
+  <Text>Hello World!</Text>
+  <RNPickerSelect
+      onValueChange={(value) => console.log(value)}
+      useNativeAndroidPickerStyle={false}
+      placeholder={{ label: "Select your favourite language", value: null }}
+      items={[
+          { label: "JavaScript", value: "JavaScript" },
+          { label: "TypeStript", value: "TypeStript" },
+          { label: "Python", value: "Python" },
+          { label: "Java", value: "Java" },
+          { label: "C++", value: "C++" },
+          { label: "C", value: "C" },
+      ]}
+      />
       <Text>Enter name:</Text>
       <TextInput 
         placeholder='e.g. Joshua Le' 
@@ -21,7 +36,6 @@ export default function App() {
         onChangeText={(value) => setAge(value)} />
 
       <Text style={styles.result}>Name: {name}, Age: {age}</Text>
-  
     </View>
   );
 }
