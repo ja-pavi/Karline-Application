@@ -9,7 +9,7 @@ import Constants from 'expo-constants';
 
 const Profile = () => {
   const [name, setName] = useState('');
-  const [age, setAge] = useState('');
+  const [school, setSchool] = useState('');
   const [grade, setGrade] = useState('');
   const [image, setImage] = useState(null);
 
@@ -53,22 +53,33 @@ const Profile = () => {
     </View>
 
     <View style ={styles.infoContainer}>
-     <Text style={styles.text}>Enter name:</Text>
+     <Text style={styles.text}>Name:</Text>
       <TextInput 
         placeholder='Name' 
         style={styles.input}
+        onChangeText={(value) => console.log(name)}
         onChangeText={(value) => setName(name)} />
 
-      <Text style={styles.text}>Enter age:</Text>
-      <TextInput 
-        placeholder='Age' 
-        style={styles.input}
-        onChangeText={(value) => setAge(age)} />
-
-      <Text style={styles.text}>Enter student's grade: </Text>
+      <Text style={styles.text}>School:</Text>
       <View style={styles.input}>
         <RNPickerSelect
-        onValueChange={(value) => console.log(grade)}
+        useNativeAndroidPickerStyle={false}
+        placeholder={{ label: "School", value: "School"}}
+        items={[
+          { label: "Theiss", value: "Theiss" },
+          { label: "Krimmel", value: "Krimmel" },
+          { label: "2nd Grade", value: "2nd Grade" },
+          { label: "3rd Grade", value: "3rd Grade" },
+          { label: "4th Grade", value: "4th Grade" },
+          { label: "5th Grade", value: "5th Grade" },
+        ]}
+        onValueChange={(value) => console.log(school)}
+        onValueChange={(value) => setSchool(school)} />
+      </View>
+
+      <Text style={styles.text}>Grade:</Text>
+      <View style={styles.input}>
+        <RNPickerSelect
         useNativeAndroidPickerStyle={false}
         placeholder={{ label: "Grade Level", value: "Grade Level"}}
         items={[
@@ -79,8 +90,13 @@ const Profile = () => {
           { label: "4th Grade", value: "4th Grade" },
           { label: "5th Grade", value: "5th Grade" },
         ]}
-        onValueChange={(value) => setGrade(value)} />
+        onValueChange={(value) => console.log(grade)}
+        onValueChange={(value) => setGrade(grade)} />
         </View>
+      </View>
+
+      <View style = {styles.text2}>
+        
       </View>
     </SafeAreaView>
   )
