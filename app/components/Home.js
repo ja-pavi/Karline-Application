@@ -4,7 +4,7 @@ import { View, StyleSheet, Text } from 'react-native'
 const Home = () => {
  return(
   <View style={styles.container}>
-    <Text style={styles.text}>Custom bottom tab navigation</Text>
+    <Text style={styles.text}>Home</Text>
   </View>
   )
 }
@@ -15,13 +15,13 @@ const styles = StyleSheet.create({
    flex: 1,
    justifyContent: 'center',
    alignItems: 'center',
-   backgroundColor: "#fff"
+   backgroundColor: "#F0EFEB"
   },
 
   text: {
       fontSize: 20,
       fontWeight: 'bold',
-      color: "black"
+      color: "#DCD9D0"
   }
 })
 export default Home; 
