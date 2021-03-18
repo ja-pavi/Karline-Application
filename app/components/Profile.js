@@ -3,29 +3,30 @@ import React, { useState } from 'react';
 import { StyleSheet, Text, SafeAreaView, View, TextInput } from 'react-native';
 import RNPickerSelect from 'react-native-picker-select';
 import 'react-native-gesture-handler';
+import {launchCamera, launchImageLibrary} from 'react-native-image-picker';
 
 const Profile = () => {
   const [name, setName] = useState('');
   const [age, setAge] = useState('');
   const [grade, setGrade] = useState("");
   return (
-    
 
-  <SafeAreaView style={styles.container}>
-     <Text style={{ color: "#AFC7D4",fontWeight: 'bold', fontSize: 18 }}>Enter name:</Text>
+  <SafeAreaView style={styles.parentContainer}>
+    <View style ={styles.infoContainer}>
+     <Text style={styles.text}>Enter name:</Text>
       <TextInput 
         placeholder='Name' 
         style={styles.input}
-        onChangeText={(value) => setName(value)} />
+        onChangeText={(value) => setName(name)} />
 
-      <Text style={{ color: "#AFC7D4",fontWeight: 'bold', fontSize: 18 }}>Enter age:</Text>
+      <Text style={styles.text}>Enter age:</Text>
       <TextInput 
         placeholder='Age' 
         style={styles.input}
         onChangeText={(value) => setAge(value)} />
 
-      <Text style={{ color: "#AFC7D4",fontWeight: 'bold', fontSize: 18 }}>Enter student's grade: </Text>
-      <View style={{ borderWidth: 4, borderColor: '#BCD4E6', borderRadius: 30, padding: 8, margin: 10, height: 40, width: 250}}>
+      <Text style={styles.text}>Enter student's grade: </Text>
+      <View style={styles.input}>
         <RNPickerSelect
         onValueChange={(value) => console.log(value)}
         useNativeAndroidPickerStyle={false}
@@ -39,44 +40,56 @@ const Profile = () => {
           { label: "5th Grade", value: "5th Grade" },
         ]}
         onValueChange={(value) => setGrade(value)} />
+        </View>
       </View>
-      </SafeAreaView>
+    </SafeAreaView>
   )
 }
 
 const styles = StyleSheet.create({
-  container: {
+  parentContainer: {
+    backgroundColor: '#FFFF',
+    height: 735,
+    justifyContent: 'center'
+  },
+  infoContainer: {
     flex: 1,
-    backgroundColor: '#D6E2E9',
-    alignItems: 'center',
-    justifyContent: 'center',
+    height: 200,
+    justifyContent: 'flex-end',
+    marginBottom: 115
+  },
+  text: {
+    color: "#000",
+    fontSize: 22.5,
+    fontWeight: 'bold',
+    marginTop: 24,
+    marginBottom: 6.5,
+    marginHorizontal: 45
   },
   input: {
-    borderWidth: 4,
-    borderRadius: 30,
-    borderColor: '#BCD4E6',
-    padding: 8,
-    margin: 10,
+    borderColor: '#18BBCD',
     height: 40,
-    width: 250,
+    width: 290,
+    borderWidth: 1.5,
+    borderRadius: 30,
+    justifyContent: 'center',
+    padding: 8,
+    marginHorizontal: 40
   },
-   text: {
-       fontSize: 20,
-       fontWeight: 'bold',
-       color: "#AFC7D4"
-   },
    text2: {
+    color: "#000",
     fontSize: 15,
-    color: "#e0e1dd" 
-},
-
+    padding: 4
+  }
 })
 
 export default Profile; 
 
 /*
-<Text style={styles.text2}>
+
+      <Text style={styles.text2}>
         Name: {name} {'\n'}
         Age: {age} {'\n'}
         Grade Level: {grade}</Text>
-*/ 
+
+*/
