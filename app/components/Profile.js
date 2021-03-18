@@ -1,10 +1,23 @@
 
 import React, { useState } from 'react';
-import { StyleSheet, Text, SafeAreaView, View, TextInput } from 'react-native';
+import { StyleSheet, Text, SafeAreaView, View, TextInput, Image, TouchableOpacity } from 'react-native';
 import RNPickerSelect from 'react-native-picker-select';
 import 'react-native-gesture-handler';
 import * as ImagePicker from 'expo-image-picker';
 import Constants from 'expo-constants';
+
+function Profile() {
+  let openImagePickerAsync = async () => {
+    let permissionResult = await ImagePicker.requestMediaLibraryPermissionsAsync();
+
+    if (permissionResult.granted === false) {
+      alert("Permission to access camera roll is required!");
+      return;
+    }
+
+    let pickerResult = await ImagePicker.launchImageLibraryAsync();
+    console.log(pickerResult);
+  }
 
 const Profile = () => {
   const [name, setName] = useState('');
@@ -12,8 +25,18 @@ const Profile = () => {
   const [grade, setGrade] = useState('');
   return (
 
+
   <SafeAreaView style={styles.parentContainer}>
+    
     <View style ={styles.infoContainer}>
+      <Image source={{ uri: 'https://i.imgur.com/TkIrScD.png' }} style={styles.logo} />
+      <Text style={styles.instructions}>
+        To share a photo from your phone with a friend, just press the button below!
+      </Text>
+
+      <TouchableOpacity onPress={openImagePickerAsync} style={styles.button}>
+        <Text style={styles.buttonText}>Pick a photo</Text>
+      </TouchableOpacity>
      <Text style={styles.text}>Enter name:</Text>
       <TextInput 
         placeholder='Name' 
@@ -45,7 +68,7 @@ const Profile = () => {
       </View>
     </SafeAreaView>
   )
-}
+}}
 
 const styles = StyleSheet.create({
   parentContainer: {
@@ -85,12 +108,3 @@ const styles = StyleSheet.create({
 })
 
 export default Profile; 
-
-/*
-
-      <Text style={styles.text2}>
-        Name: {name} {'\n'}
-        Age: {age} {'\n'}
-        Grade Level: {grade}</Text>
-
-*/
