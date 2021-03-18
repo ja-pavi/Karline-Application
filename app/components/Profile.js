@@ -1,42 +1,55 @@
 
-import React, { useState } from 'react';
-import { StyleSheet, Text, SafeAreaView, View, TextInput, Image, TouchableOpacity } from 'react-native';
+import React, { useState, useEffect } from 'react';
+import { StyleSheet, Text, SafeAreaView, View, TextInput, Image, TouchableOpacity, Button, Platform } from 'react-native';
 import RNPickerSelect from 'react-native-picker-select';
 import 'react-native-gesture-handler';
 import * as ImagePicker from 'expo-image-picker';
 import Constants from 'expo-constants';
 
-function Profile() {
-  let openImagePickerAsync = async () => {
-    let permissionResult = await ImagePicker.requestMediaLibraryPermissionsAsync();
-
-    if (permissionResult.granted === false) {
-      alert("Permission to access camera roll is required!");
-      return;
-    }
-
-    let pickerResult = await ImagePicker.launchImageLibraryAsync();
-    console.log(pickerResult);
-  }
 
 const Profile = () => {
   const [name, setName] = useState('');
   const [age, setAge] = useState('');
   const [grade, setGrade] = useState('');
+  const [image, setImage] = useState(null);
+
+  useEffect(() => {
+    (async () => {
+      if (Platform.OS !== 'web') {
+        const { status } = await ImagePicker.requestMediaLibraryPermissionsAsync();
+        if (status !== 'granted') {
+          alert('Sorry, we need camera roll permissions to make this work!');
+        }
+      }
+    })();
+  }, []);
+
+  const pickImage = async () => {
+    let result = await ImagePicker.launchImageLibraryAsync({
+      mediaTypes: ImagePicker.MediaTypeOptions.All,
+      allowsEditing: true,
+      aspect: [4, 3],
+      quality: 1,
+    });
+
+    console.log(result);
+
+    if (!result.cancelled) {
+      setImage(result.uri);
+    }
+  };
+
   return (
 
 
   <SafeAreaView style={styles.parentContainer}>
-    
-    <View style ={styles.infoContainer}>
-      <Image source={{ uri: 'https://i.imgur.com/TkIrScD.png' }} style={styles.logo} />
-      <Text style={styles.instructions}>
-        To share a photo from your phone with a friend, just press the button below!
-      </Text>
 
-      <TouchableOpacity onPress={openImagePickerAsync} style={styles.button}>
-        <Text style={styles.buttonText}>Pick a photo</Text>
-      </TouchableOpacity>
+    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+      <Button title="Pick an image from camera roll" onPress={pickImage} />
+      {image && <Image source={{ uri: image }} style={{ width: 200, height: 200 }} />}
+    </View>
+
+    <View style ={styles.infoContainer}>
      <Text style={styles.text}>Enter name:</Text>
       <TextInput 
         placeholder='Name' 
@@ -47,12 +60,12 @@ const Profile = () => {
       <TextInput 
         placeholder='Age' 
         style={styles.input}
-        onChangeText={(value) => setAge(value)} />
+        onChangeText={(value) => setAge(age)} />
 
       <Text style={styles.text}>Enter student's grade: </Text>
       <View style={styles.input}>
         <RNPickerSelect
-        onValueChange={(value) => console.log(value)}
+        onValueChange={(value) => console.log(grade)}
         useNativeAndroidPickerStyle={false}
         placeholder={{ label: "Grade Level", value: "Grade Level"}}
         items={[
@@ -68,7 +81,7 @@ const Profile = () => {
       </View>
     </SafeAreaView>
   )
-}}
+}
 
 const styles = StyleSheet.create({
   parentContainer: {
