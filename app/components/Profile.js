@@ -57,8 +57,8 @@ const Profile = () => {
       <TextInput 
         placeholder='Name' 
         style={styles.input}
-        onChangeText={(value) => console.log(name)}
-        onChangeText={(value) => setName(name)} />
+        onChangeText={(value) => console.log(value)}
+        onChangeText={(value) => setName(value)} />
 
       <Text style={styles.text}>School:</Text>
       <View style={styles.input}>
@@ -66,15 +66,42 @@ const Profile = () => {
         useNativeAndroidPickerStyle={false}
         placeholder={{ label: "School", value: "School"}}
         items={[
-          { label: "Theiss", value: "Theiss" },
-          { label: "Krimmel", value: "Krimmel" },
-          { label: "2nd Grade", value: "2nd Grade" },
-          { label: "3rd Grade", value: "3rd Grade" },
-          { label: "4th Grade", value: "4th Grade" },
-          { label: "5th Grade", value: "5th Grade" },
+          { label: "Benfer", value: "Benfer" },
+          { label: "Benignus", value: "Krimmel" },
+          { label: "Bernshausen", value: "Bernshausen" },
+          { label: "Blackshear", value: "Blackshear" },
+          { label: "Brill", value: "Brill" },
+          { label: "Ehrhardt", value: "Ehrhardt" },
+          { label: "Eiland", value: "Eiland" },
+          { label: "Epps Island", value: "Epps Island" },
+          { label: "Fox", value: "Fox" },
+          { label: "Frank", value: "Frank" },
+          { label: "French", value: "French" },
+          { label: "Grace England", value: "Grace England" },
+          { label: "Greenwood Forest", value: "Greenwood Forest" },
+          { label: "Hassler", value: "Hassler" },
+          { label: "Haude", value: "Haude" },
+          { label: "Kaiser", value: "Kaiser" },
+          { label: "Klenk", value: "Klenk" },
+          { label: "Kohrville", value: "Kohrville" },
+          { label: "Krahn", value: "Krahn" },
+          { label: "Kreinhop", value: "Kreinhop" },
+          { label: "Kuehnle", value: "Kuehnle" },
+          { label: "Lemm", value: "Lemm" },
+          { label: "Mahaffey", value: "Mahaffey" },
+          { label: "McDougle", value: "McDougle" },
+          { label: "Metzler", value: "Metzler" },
+          { label: "Mittelstadt", value: "Mittelstadt" },
+          { label: "Mueller", value: "Mueller" },
+          { label: "Nitsch", value: "Nitsch" },
+          { label: "Northampton", value: "Northampton" },
+          { label: "Roth", value: "Roth" },
+          { label: "Schultz", value: "Schultz" },
+          { label: "Theiss", value: "Thiess" },
+          { label: "Zwink", value: "Zwink" },
         ]}
-        onValueChange={(value) => console.log(school)}
-        onValueChange={(value) => setSchool(school)} />
+        onValueChange={(value) => console.log(value)}
+        onValueChange={(value) => setSchool(value)} />
       </View>
 
       <Text style={styles.text}>Grade:</Text>
@@ -90,14 +117,16 @@ const Profile = () => {
           { label: "4th Grade", value: "4th Grade" },
           { label: "5th Grade", value: "5th Grade" },
         ]}
-        onValueChange={(value) => console.log(grade)}
-        onValueChange={(value) => setGrade(grade)} />
+        onValueChange={(value) => console.log(value)}
+        onValueChange={(value) => setGrade(value)} />
         </View>
       </View>
 
-      <View style = {styles.text2}>
-        
-      </View>
+      <Text style={styles.text2}>
+        Name: {name} {'\n'}
+        School: {school} {'\n'}
+        Grade: {grade}
+      </Text> 
     </SafeAreaView>
   )
 }
