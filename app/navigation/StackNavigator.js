@@ -13,14 +13,35 @@ return (
      name="Splash"
      component={Splash}
      options={{
-        title: "Sign In",
+        title: "Klein Carpool",
         headerStyle: {
         backgroundColor: '#fff',},
         headerTintColor: '#a8dadc',
         headerTitleStyle: 'bold',}}
      />
-     <Stack.Screen name="SignIn" component={SignIn}/>
-     <Stack.Screen name="SignUp" component={SignUp}/>
+
+     <Stack.Screen 
+     name="Sign In"
+     component={SignIn}
+     options={{
+         title: "Sign In",
+         headerStyle: {
+         backgroundColor: '#fff',},
+         headerTintColor: '#a8dadc',
+         headerTitleStyle: 'bold',}}
+      /> 
+
+     <Stack.Screen 
+     name="Sign Up" 
+     component={SignUp}
+     options={{
+         title: "Sign Up",
+         headerStyle: {
+         backgroundColor: '#fff',},
+         headerTintColor: '#a8dadc',
+         headerTitleStyle: 'bold',}}
+     />
+   
  </Stack.Navigator>
 )};
 

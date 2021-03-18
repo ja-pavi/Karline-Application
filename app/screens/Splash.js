@@ -9,13 +9,13 @@ const Splash = ({navigation}) => {
     <Button 
       title="Click to Sign In"
       color="#a8dadc"
-      onPress={() => navigation.navigate("SignIn")}
+      onPress={() => navigation.navigate("Sign In")}
       />
 
       <Button 
       title="Click to Sign Up"
       color="#a8dadc"
-      onPress={() => navigation.navigate("SignUp")}
+      onPress={() => navigation.navigate("Sign Up")}
       />
 
   </View>

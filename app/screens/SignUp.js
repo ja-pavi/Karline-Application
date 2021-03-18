@@ -1,7 +1,7 @@
 import React from 'react'
 import { View, StyleSheet, Text } from 'react-native'
 
-const SignUpScreen = () => {
+const SignUp = () => {
  return(
   <View style={styles.container}>
     <Text style={styles.text}>Sign-Up Screen</Text>
@@ -9,19 +9,18 @@ const SignUpScreen = () => {
   )
 }
 
-
 const styles = StyleSheet.create({
   container: {
    flex: 1,
    justifyContent: 'center',
    alignItems: 'center',
-   backgroundColor: "#99C1DE"
+   backgroundColor: "#F0EFEB"
   },
 
   text: {
       fontSize: 20,
       fontWeight: 'bold',
-      color: "#74ABD2"
+      color: "#DCD9D0"
   }
 })
-export default SignUpScreen; 
+export default SignUp; 

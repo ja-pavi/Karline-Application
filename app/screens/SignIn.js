@@ -14,13 +14,13 @@ const styles = StyleSheet.create({
    flex: 1,
    justifyContent: 'center',
    alignItems: 'center',
-   backgroundColor: "#99C1DE"
+   backgroundColor: "#F0EFEB"
   },
 
   text: {
       fontSize: 20,
       fontWeight: 'bold',
-      color: "#74ABD2"
+      color: "#DCD9D0"
   }
 })
 export default SignIn; 
