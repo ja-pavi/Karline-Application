@@ -3,12 +3,13 @@ import React, { useState } from 'react';
 import { StyleSheet, Text, SafeAreaView, View, TextInput } from 'react-native';
 import RNPickerSelect from 'react-native-picker-select';
 import 'react-native-gesture-handler';
-import {launchCamera, launchImageLibrary} from 'react-native-image-picker';
+import * as ImagePicker from 'expo-image-picker';
+import Constants from 'expo-constants';
 
 const Profile = () => {
   const [name, setName] = useState('');
   const [age, setAge] = useState('');
-  const [grade, setGrade] = useState("");
+  const [grade, setGrade] = useState('');
   return (
 
   <SafeAreaView style={styles.parentContainer}>
