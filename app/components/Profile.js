@@ -13,6 +13,7 @@ const Profile = () => {
   const [grade, setGrade] = useState('');
   const [image, setImage] = useState(null);
 
+  //photo picker function
   useEffect(() => {
     (async () => {
       if (Platform.OS !== 'web') {
@@ -24,6 +25,7 @@ const Profile = () => {
     })();
   }, []);
 
+  //picks image for profile picture
   const pickImage = async () => {
     let result = await ImagePicker.launchImageLibraryAsync({
       mediaTypes: ImagePicker.MediaTypeOptions.All,
@@ -39,8 +41,9 @@ const Profile = () => {
     }
   };
 
-  return (
 
+  //returns everything on the view
+  return (
 
   <SafeAreaView style={styles.parentContainer}>
 
@@ -82,6 +85,8 @@ const Profile = () => {
     </SafeAreaView>
   )
 }
+
+//styles for elements
 
 const styles = StyleSheet.create({
   parentContainer: {
