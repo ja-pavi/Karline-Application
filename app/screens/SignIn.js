@@ -1,64 +1,21 @@
 import * as React from 'react';
-import {
-  StatusBar,
-  Dimensions,
-  TouchableOpacity,
-  Animated,
-  Text,
-  View,
-  StyleSheet,
-} from 'react-native';
+import {StatusBar, Dimensions, TouchableOpacity,Animated, Text, View, StyleSheet,} from 'react-native';
 import Constants from 'expo-constants';
 import { AntDesign } from '@expo/vector-icons';
+
 const { width } = Dimensions.get('window');
-
 const AnimatedAntDesign = Animated.createAnimatedComponent(AntDesign);
-
 const DURATION = 1000;
 const TEXT_DURATION = DURATION * 0.8;
-
 const quotes = [
   {
     quote:
-      'For the things we have to learn before we can do them, we learn by doing them.',
-    author: 'Aristotle, The Nicomachean Ethics',
+      'Please sign in with Skyward Login.',
+    author: ' ',
   },
   {
-    quote: 'The fastest way to build an app.',
-    author: 'The Expo Team',
-  },
-  {
-    quote:
-      'The greatest glory in living lies not in never falling, but in rising every time we fall.',
-    author: 'Nelson Mandela',
-  },
-  {
-    quote: 'The way to get started is to quit talking and begin doing.',
-    author: 'Walt Disney',
-  },
-  {
-    quote:
-      "Your time is limited, so don't waste it living someone else's life. Don't be trapped by dogma – which is living with the results of other people's thinking.",
-    author: 'Steve Jobs',
-  },
-  {
-    quote:
-      'If life were predictable it would cease to be life, and be without flavor.',
-    author: 'Eleanor Roosevelt',
-  },
-  {
-    quote:
-      "If you look at what you have in life, you'll always have more. If you look at what you don't have in life, you'll never have enough.",
-    author: 'Oprah Winfrey',
-  },
-  {
-    quote:
-      "If you set your goals ridiculously high and it's a failure, you will fail above everyone else's success.",
-    author: 'James Cameron',
-  },
-  {
-    quote: "Life is what happens when you're busy making other plans.",
-    author: 'John Lennon',
+    quote: ' ',
+    author: ' ',
   },
 ];
 
@@ -75,6 +32,7 @@ const Circle = ({ onPress, index, quotes, animatedValue, animatedValue2 }) => {
       bgColor,
     ],
   });
+  
   const dotBgColor = animatedValue2.interpolate({
     inputRange: [0, 0.001, 0.5, 0.501, 0.9, 1],
     outputRange: [
@@ -171,35 +129,11 @@ prev nextBgColor === next bgColor
 
 const colors = [
   {
-    initialBgColor: 'goldenrod',
-    bgColor: '#222',
-    nextBgColor: '#222',
+    initialBgColor: '#F0EFEB',
+    bgColor: '#577399',
+    nextBgColor: '#577399',
   },
-  {
-    initialBgColor: 'goldenrod',
-    bgColor: '#222',
-    nextBgColor: 'yellowgreen',
-  },
-  {
-    initialBgColor: '#222',
-    bgColor: 'yellowgreen',
-    nextBgColor: 'midnightblue',
-  },
-  {
-    initialBgColor: 'yellowgreen',
-    bgColor: 'midnightblue',
-    nextBgColor: 'turquoise',
-  },
-  {
-    initialBgColor: 'midnightblue',
-    bgColor: 'turquoise',
-    nextBgColor: 'goldenrod',
-  },
-  {
-    initialBgColor: 'turquoise',
-    bgColor: 'goldenrod',
-    nextBgColor: '#222',
-  },
+
 ];
 
 export default function App() {
@@ -307,10 +241,9 @@ const styles = StyleSheet.create({
   },
   paragraph: {
     margin: 12,
-    fontSize: 24,
+    fontSize: 20,
     // fontWeight: 'bold',
     textAlign: 'center',
-    fontFamily: 'Menlo',
     color: 'white',
   },
   button: {
