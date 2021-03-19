@@ -8,15 +8,19 @@ import { BlurView } from 'expo';
 const Stack = createStackNavigator();
 const StackNavigator = () => {
 return (
-<Stack.Navigator>
+<Stack.Navigator
+   screenOptions={{
+      headerShown: false
+   }}
+   >
      <Stack.Screen 
      name="Splash"
      component={Splash}
      options={{
         title: "Klein Carpool",
         headerStyle: {
-        backgroundColor: '#fff',},
-        headerTintColor: '#a8dadc',
+        backgroundColor: 'transparent',},
+        headerTintColor: 'transparent',
         headerTitleStyle: 'bold',}}
      />
 
@@ -26,8 +30,8 @@ return (
      options={{
          title: "Sign In",
          headerStyle: {
-         backgroundColor: '#fff',},
-         headerTintColor: '#a8dadc',
+         backgroundColor: 'transparent',},
+         headerTintColor: 'transparent',
          headerTitleStyle: 'bold',}}
       /> 
 
@@ -37,8 +41,8 @@ return (
      options={{
          title: "Sign Up",
          headerStyle: {
-         backgroundColor: '#fff',},
-         headerTintColor: '#a8dadc',
+         backgroundColor: 'transparent',},
+         headerTintColor: 'transparent ',
          headerTitleStyle: 'bold',}}
      />
    
