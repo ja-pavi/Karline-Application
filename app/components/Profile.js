@@ -4,7 +4,6 @@ import { StyleSheet, Text, SafeAreaView, View, TextInput, Image, TouchableOpacit
 import RNPickerSelect from 'react-native-picker-select';
 import 'react-native-gesture-handler';
 import * as ImagePicker from 'expo-image-picker';
-import Constants from 'expo-constants';
 
 
 const Profile = () => {
@@ -51,14 +50,14 @@ const Profile = () => {
 
     <TouchableOpacity style={styles.button} onPress={pickImage}>
     {image && <Image source={{ uri: image }} style={{ width: 200, height: 200 }} />}
-          <Image source={require('./assets/addProfilePic.png')}/>
+          <Image source={require('../../assets/addProfilePic.png')}/>
     </TouchableOpacity>
     </View>
 
     <View style ={styles.infoContainer}>
      <Text style={styles.text}>Name:</Text>
       <TextInput 
-        placeholder='Name' 
+        placeholder="Student's Name"
         style={styles.input}
         onChangeText={(value) => setName(value)} />
 
