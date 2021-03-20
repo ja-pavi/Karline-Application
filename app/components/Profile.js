@@ -4,6 +4,7 @@ import { StyleSheet, Text, SafeAreaView, View, TextInput, Image, TouchableOpacit
 import RNPickerSelect from 'react-native-picker-select';
 import 'react-native-gesture-handler';
 import * as ImagePicker from 'expo-image-picker';
+import { Ionicons } from '@expo/vector-icons';
 
 
 const Profile = () => {
@@ -40,36 +41,25 @@ const Profile = () => {
     }
   };
 
-
   //returns everything on the view
   return (
+    
 
   <SafeAreaView style={styles.parentContainer}>
-      <ImageBackground 
-          source={require('../../assets/coolBlues.jpg')}
-          style={{ flex: 1,
-            width: null,
-            height: null,
-            }}
-        >
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
 
     <TouchableOpacity style={styles.button} onPress={pickImage}>
-    {image && <Image source={{ uri: image }} style={{ width: 200, height: 200 }} />}
-          <Image source={require('../../assets/addProfilePic.png')}/>
+    {image && <Image source={{ uri: image }} style={{width: 150, height: 150, borderRadius: 150/2}} />}  
+      <Ionicons name="person-add" size={90} color="black" />
     </TouchableOpacity>
-    </View>
-
+      
     <View style ={styles.infoContainer}>
-     <Text style={styles.text}>Name:</Text>
-      <TextInput 
+      <TextInput
         placeholder="Student's Name"
         style={styles.input}
         onChangeText={(value) => setName(value)} />
-
-      <Text style={styles.text}>School:</Text>
       <View style={styles.input}>
         <RNPickerSelect
+        style={styles.input}
         useNativeAndroidPickerStyle={false}
         placeholder={{ label: "Select School", value: ""}}
         items={[
@@ -110,7 +100,6 @@ const Profile = () => {
         onValueChange={(value) => setSchool(value)} />
       </View>
 
-      <Text style={styles.text}>Grade:</Text>
       <View style={styles.input}>
         <RNPickerSelect
         useNativeAndroidPickerStyle={false}
@@ -126,7 +115,6 @@ const Profile = () => {
         onValueChange={(value) => setGrade(value)} />
         </View>
       </View>
-      </ImageBackground>
     </SafeAreaView>
   )
 }
@@ -135,46 +123,43 @@ const Profile = () => {
 
 const styles = StyleSheet.create({
   parentContainer: {
+    backgroundColor: '#FFF',
     height: 735,
-    justifyContent: 'center'
+    justifyContent: 'center',
+    alignItems: 'center'
   },
   infoContainer: {
     flex: 1,
     height: 200,
     justifyContent: 'flex-end',
-    marginBottom: 95
-  },
-  backgroundImage: {
-    flex: 1,
-    alignSelf: 'stretch',
-    width: null,
+    alignItems: 'center',
+    marginBottom: 85
   },
   text: {
     color: "#000",
     fontSize: 22.5,
     fontWeight: 'bold',
-    marginTop: 24,
-    marginBottom: 6.5,
-    marginHorizontal: 60
   },
   input: {
     borderColor: '#DCDCDC',
     height: 40,
     width: 250,
     borderWidth: 1.5,
-    borderRadius: 10,
+    borderRadius: 20,
     justifyContent: 'center',
-    padding: 11,
-    marginHorizontal: 55
+    padding: 10,
+    marginTop: 25,
   },
   button: {
-    backgroundColor: '#859a9b',
-    borderRadius: 20,
-    padding: 10,
-    marginBottom: 20,
+    backgroundColor: '#FFF',
+    borderRadius: 160,
+    justifyContent: 'center',
+    alignItems: 'center',
+    padding: 40,
+    marginTop: 190,
     shadowColor: '#303838',
     shadowOffset: { width: 0, height: 5 },
-    shadowRadius: 10,
+    shadowRadius: 20,
     shadowOpacity: 0.35,
   },
    text2: {
