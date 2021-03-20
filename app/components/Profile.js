@@ -48,8 +48,11 @@ const Profile = () => {
   <SafeAreaView style={styles.parentContainer}>
 
     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-      <Button title="Pick an image from camera roll" onPress={pickImage} />
-      {image && <Image source={{ uri: image }} style={{ width: 200, height: 200 }} />}
+
+    <TouchableOpacity style={styles.button} onPress={pickImage}>
+    {image && <Image source={{ uri: image }} style={{ width: 200, height: 200 }} />}
+          <Image source={require('./assets/addProfilePic.png')}/>
+    </TouchableOpacity>
     </View>
 
     <View style ={styles.infoContainer}>
@@ -57,14 +60,13 @@ const Profile = () => {
       <TextInput 
         placeholder='Name' 
         style={styles.input}
-        onChangeText={(value) => console.log(value)}
         onChangeText={(value) => setName(value)} />
 
       <Text style={styles.text}>School:</Text>
       <View style={styles.input}>
         <RNPickerSelect
         useNativeAndroidPickerStyle={false}
-        placeholder={{ label: "School", value: "School"}}
+        placeholder={{ label: "Select School", value: ""}}
         items={[
           { label: "Benfer", value: "Benfer" },
           { label: "Benignus", value: "Krimmel" },
@@ -100,7 +102,6 @@ const Profile = () => {
           { label: "Theiss", value: "Thiess" },
           { label: "Zwink", value: "Zwink" },
         ]}
-        onValueChange={(value) => console.log(value)}
         onValueChange={(value) => setSchool(value)} />
       </View>
 
@@ -108,7 +109,7 @@ const Profile = () => {
       <View style={styles.input}>
         <RNPickerSelect
         useNativeAndroidPickerStyle={false}
-        placeholder={{ label: "Grade Level", value: "Grade Level"}}
+        placeholder={{ label: "Select Grade Level", value: ""}}
         items={[
           { label: "Kindergarten", value: "Kindergarten" },
           { label: "1st Grade", value: "1st Grade" },
@@ -117,16 +118,9 @@ const Profile = () => {
           { label: "4th Grade", value: "4th Grade" },
           { label: "5th Grade", value: "5th Grade" },
         ]}
-        onValueChange={(value) => console.log(value)}
         onValueChange={(value) => setGrade(value)} />
         </View>
       </View>
-
-      <Text style={styles.text2}>
-        Name: {name} {'\n'}
-        School: {school} {'\n'}
-        Grade: {grade}
-      </Text> 
     </SafeAreaView>
   )
 }
@@ -143,7 +137,7 @@ const styles = StyleSheet.create({
     flex: 1,
     height: 200,
     justifyContent: 'flex-end',
-    marginBottom: 115
+    marginBottom: 95
   },
   text: {
     color: "#000",
@@ -151,23 +145,41 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     marginTop: 24,
     marginBottom: 6.5,
-    marginHorizontal: 45
+    marginHorizontal: 60
   },
   input: {
-    borderColor: '#18BBCD',
+    borderColor: '#DCDCDC',
     height: 40,
-    width: 290,
+    width: 250,
     borderWidth: 1.5,
-    borderRadius: 30,
+    borderRadius: 10,
     justifyContent: 'center',
-    padding: 8,
-    marginHorizontal: 40
+    padding: 11,
+    marginHorizontal: 55
+  },
+  button: {
+    backgroundColor: '#859a9b',
+    borderRadius: 20,
+    padding: 10,
+    marginBottom: 20,
+    shadowColor: '#303838',
+    shadowOffset: { width: 0, height: 5 },
+    shadowRadius: 10,
+    shadowOpacity: 0.35,
   },
    text2: {
-    color: "#000",
+    color: "#DCDCDC",
     fontSize: 15,
     padding: 4
   }
 })
 
 export default Profile; 
+
+/* prints variables of student
+      <Text style={styles.text2}>
+        Name: {name} {'\n'}
+        School: {school} {'\n'}
+        Grade: {grade}
+      </Text> 
+*/
