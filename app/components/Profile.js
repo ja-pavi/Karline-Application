@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
-import { StyleSheet, Text, SafeAreaView, View, TextInput, Image, TouchableOpacity, Button, Platform } from 'react-native';
+import { StyleSheet, Text, SafeAreaView, View, TextInput, Image, TouchableOpacity, Button, Platform, ImageBackground } from 'react-native';
 import RNPickerSelect from 'react-native-picker-select';
 import 'react-native-gesture-handler';
 import * as ImagePicker from 'expo-image-picker';
@@ -45,7 +45,13 @@ const Profile = () => {
   return (
 
   <SafeAreaView style={styles.parentContainer}>
-
+      <ImageBackground 
+          source={require('../../assets/coolBlues.jpg')}
+          style={{ flex: 1,
+            width: null,
+            height: null,
+            }}
+        >
     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
 
     <TouchableOpacity style={styles.button} onPress={pickImage}>
@@ -120,6 +126,7 @@ const Profile = () => {
         onValueChange={(value) => setGrade(value)} />
         </View>
       </View>
+      </ImageBackground>
     </SafeAreaView>
   )
 }
@@ -128,7 +135,6 @@ const Profile = () => {
 
 const styles = StyleSheet.create({
   parentContainer: {
-    backgroundColor: '#FFFF',
     height: 735,
     justifyContent: 'center'
   },
@@ -137,6 +143,11 @@ const styles = StyleSheet.create({
     height: 200,
     justifyContent: 'flex-end',
     marginBottom: 95
+  },
+  backgroundImage: {
+    flex: 1,
+    alignSelf: 'stretch',
+    width: null,
   },
   text: {
     color: "#000",
