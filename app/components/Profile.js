@@ -5,6 +5,8 @@ import RNPickerSelect from 'react-native-picker-select';
 import 'react-native-gesture-handler';
 import * as ImagePicker from 'expo-image-picker';
 import { Ionicons } from '@expo/vector-icons';
+import { color } from 'react-native-reanimated';
+import { StatusBar } from 'expo-status-bar';
 
 
 const Profile = () => {
@@ -43,14 +45,18 @@ const Profile = () => {
 
   //returns everything on the view
   return (
-    
-
   <SafeAreaView style={styles.parentContainer}>
-
-    <TouchableOpacity style={styles.button} onPress={pickImage}>
-    {image && <Image source={{ uri: image }} style={{width: 150, height: 150, borderRadius: 150/2}} />}  
-      <Ionicons name="person-add" size={90} color="black" />
+    <StatusBar translucent backgroundColor='transparent' />
+    <View style={styles.topView}></View>
+    <View style={styles.triangleCornerLayer}></View>
+    <Text style={styles.titleText}>Add Student</Text>
+    <View style={styles.buttonIcon}>
+      <Ionicons name='person-add' size={90} color='#DCDCDC'/>
+    </View>
+    <TouchableOpacity style={styles.pictureButton} onPress={pickImage}>
+      {image && <Image source={{ uri: image }} style={{width: 195, height: 195, borderRadius: 150}} />}  
     </TouchableOpacity>
+
       
     <View style ={styles.infoContainer}>
       <TextInput
@@ -113,8 +119,15 @@ const Profile = () => {
           { label: "5th Grade", value: "5th Grade" },
         ]}
         onValueChange={(value) => setGrade(value)} />
-        </View>
       </View>
+      <View Style={styles.input}>
+        <TouchableOpacity>
+          <View style={styles.addStudentButton}>
+            <Text style={styles.buttonText}>Add Student</Text>
+          </View>
+        </TouchableOpacity>
+      </View>
+    </View>
     </SafeAreaView>
   )
 }
@@ -128,12 +141,17 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center'
   },
+  image: {
+    flex: 1,
+    resizeMode: "cover",
+    justifyContent: "center"
+  },
   infoContainer: {
     flex: 1,
     height: 200,
     justifyContent: 'flex-end',
     alignItems: 'center',
-    marginBottom: 85
+    marginBottom: 30
   },
   text: {
     color: "#000",
@@ -145,27 +163,79 @@ const styles = StyleSheet.create({
     height: 40,
     width: 250,
     borderWidth: 1.5,
-    borderRadius: 20,
+    borderRadius: 10,
     justifyContent: 'center',
     padding: 10,
-    marginTop: 25,
+    marginTop: 20,
   },
-  button: {
+  buttonIcon: {
     backgroundColor: '#FFF',
-    borderRadius: 160,
+    width: 210,
+    height: 210,
+    borderRadius: 150,
     justifyContent: 'center',
     alignItems: 'center',
-    padding: 40,
-    marginTop: 190,
+    padding: 12,
+    marginTop: 0,
     shadowColor: '#303838',
     shadowOffset: { width: 0, height: 5 },
     shadowRadius: 20,
-    shadowOpacity: 0.35,
+    shadowOpacity: 0.8,
   },
-   text2: {
-    color: "#DCDCDC",
+  pictureButton: {
+    backgroundColor: 'transparent',
+    width: 210,
+    height: 210,
+    borderRadius: 150,
+    justifyContent: 'center',
+    alignItems: 'center',
+    padding: 12,
+    marginTop: -210,
+    shadowColor: 'transparent',
+    shadowOffset: { width: 0, height: 5 },
+    shadowRadius: 20,
+    shadowOpacity: 0.5,
+  },
+  topView: {
+    backgroundColor: '#5DB6CA',
+    width: 500,
+    height:231,
+    marginTop: -50
+  },
+  addStudentButton: {
+    backgroundColor: '#5DB6CA',
+    height: 40,
+    width: 180,
+    borderRadius: 10,
+    justifyContent: 'center',
+    alignItems: 'center',
+    padding: 10,
+    marginTop: 25,
+  },
+  buttonText: {
+    color: "#FFF",
     fontSize: 15,
-    padding: 4
+  },
+  triangleCornerLayer: {
+    position: 'absolute',
+    top:225,
+    left:0,
+    width:300,
+    height: 250,
+    backgroundColor: 'transparent',
+    borderStyle: 'solid',
+    borderRightWidth: 400,
+    borderTopWidth: 200,
+    borderRightColor: 'transparent',
+    borderTopColor: '#5DB6CA'
+  },
+  titleText: {
+    position: 'absolute',
+    top:110,
+    alignItems: 'center',
+    fontWeight: "bold",
+    color: '#FFF',
+    fontSize: 45,
   }
 })
 
