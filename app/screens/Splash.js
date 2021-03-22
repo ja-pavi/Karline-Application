@@ -29,9 +29,9 @@ const Splash = ({navigation}) => {
       style={styles.footer}> 
           <Text style={styles.title}>The new way to carpool!</Text>
           <Text style={styles.text}>Sign in with account</Text>
+      
       <View style={styles.button}>
       <TouchableOpacity 
-
       onPress={() => navigation.navigate("Sign In")}>
       <LinearGradient
           colors={['#6dd5ed', '#5DB6CA']}

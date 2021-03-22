@@ -3,6 +3,7 @@ import{createStackNavigator} from '@react-navigation/stack';
 import SignIn from '../screens/SignIn';
 import SignUp from '../screens/SignUp';
 import Splash from '../screens/Splash';
+import TabNavigator from './TabNavigator';
 
 const Stack = createStackNavigator();
 
@@ -45,6 +46,18 @@ return (
          headerTintColor: 'transparent ',
          headerTitleStyle: 'bold',}}
      />
+
+      <Stack.Screen 
+     name="TabNavigator" 
+     component={TabNavigator}
+     options={{
+         title: "TabNavigator",
+         headerStyle: {
+         backgroundColor: 'transparent',},
+         headerTintColor: 'transparent ',
+         headerTitleStyle: 'bold',}}
+     />
+   
    
  </Stack.Navigator>
 )};

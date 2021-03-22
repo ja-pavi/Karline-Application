@@ -181,16 +181,17 @@ const SignIn = ({navigation}) => {
       </TouchableOpacity>
       </View>
 
-      <View style={styles.button}>
+      <View>
+      <TouchableOpacity style={styles.button}
+      onPress={() => navigation.navigate("TabNavigator")}>
         <LinearGradient
-        colors={['#6dd5ed', '#5DB6CA']}
-        style={styles.signIn} 
+          colors={['#6dd5ed', '#5DB6CA']}
+          style={styles.signIn} 
         >
-        <Text style={[styles.textSign, {
-          color: '#fff'
-        }]}>Sign In</Text>
+        <Text style={[styles.textSign, { color: '#fff'}]}>Sign In</Text>
         </LinearGradient>
-        
+        </TouchableOpacity>
+
         <TouchableOpacity
           onPress={() => navigation.navigate("Sign Up")}
           style={[styles.signIn, {
