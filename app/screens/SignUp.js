@@ -1,262 +1,342 @@
-import * as React from 'react';
-import {StatusBar, Dimensions, TouchableOpacity,Animated, Text, View, StyleSheet,} from 'react-native';
-import Constants from 'expo-constants';
-import { AntDesign } from '@expo/vector-icons';
+import React from 'react';
+import { 
+    View, 
+    Text, 
+    TouchableOpacity, 
+    TextInput,
+    Platform,
+    StyleSheet ,
+    StatusBar,
+    Alert,
+} from 'react-native';
+import * as Animatable from 'react-native-animatable';
+import {LinearGradient} from 'expo-linear-gradient';
+import FontAwesome from 'react-native-vector-icons/FontAwesome';
+import Feather from 'react-native-vector-icons/Feather';
+import { setStatusBarStyle } from 'expo-status-bar';
+import { NavigationContainer } from '@react-navigation/native';
 
-const { width } = Dimensions.get('window');
-const AnimatedAntDesign = Animated.createAnimatedComponent(AntDesign);
-const DURATION = 1000;
-const TEXT_DURATION = DURATION * 0.8;
-const quotes = [
-  {
-    quote:
-      'Make a Klein Carpool Account below.',
-    author: ' ',
-  },
-  {
-    quote: ' ',
-    author: ' ',
-  },
-];
+const SignUp = ({navigation}) => {
 
-const Circle = ({ onPress, index, quotes, animatedValue, animatedValue2 }) => {
-  const { initialBgColor, nextBgColor, bgColor } = colors[index];
-  const inputRange = [0, 0.001, 0.5, 0.501, 1];
-  const backgroundColor = animatedValue2.interpolate({
-    inputRange,
-    outputRange: [
-      initialBgColor,
-      initialBgColor,
-      initialBgColor,
-      bgColor,
-      bgColor,
-    ],
+  const [data, setData] = React.useState({
+    email: '',
+    password: '',
+    confirm_password: '',
+    check_textInputChange: false,
+    secureTextEntry: true,
   });
+
+  const textInputChange = (val) => {
+    if( val.trim().length >= 4 ){
+      setData({
+        ...data,
+        username: val,
+        check_textInputChange: true,
+        isValidUser: true
+    });
+  } else {
+    setData({
+        ...data,
+        username: val,
+        check_textInputChange: false,
+        isValidUser: false
+      });
+    }
+  }
+
+  const handlePasswordChange = (val) => {
+    if( val.trim().length >= 8 ) {
+        setData({
+            ...data,
+            password: val,
+            isValidPassword: true
+        });
+    } else {
+        setData({
+            ...data,
+            password: val,
+            isValidPassword: false
+        });
+      }
+    }
+
+    const handleConfirmPasswordChange = (val) => {
+      if( val.trim().length >= 8 ) {
+          setData({
+              ...data,
+              confirm_password: val,
+              isValidPassword: true
+          });
+      } else {
+          setData({
+              ...data,
+              password: val,
+              isValidPassword: false
+          });
+        }
+      }
   
-  const dotBgColor = animatedValue2.interpolate({
-    inputRange: [0, 0.001, 0.5, 0.501, 0.9, 1],
-    outputRange: [
-      bgColor,
-      bgColor,
-      bgColor,
-      initialBgColor,
-      initialBgColor,
-      nextBgColor,
-    ],
-  });
+
+  const updateSecureTextEntry = () => {
+    setData({
+        ...data,
+        secureTextEntry: !data.secureTextEntry
+    });
+  }
+  
+
+  const updateConfirmSecureTextEntry = () => {
+    setData({
+        ...data,
+        confirm_secureTextEntry: !data.confirm_secureTextEntry
+    });
+  }
+
+  const handleValidUser = (val) => {
+    if( val.trim().length >= 4 ) {
+        setData({
+            ...data,
+            isValidUser: true
+        });
+    } else {
+        setData({
+            ...data,
+            isValidUser: false
+        });
+      }
+    }
+
+  const loginHandle = (userName, password) => {
+    const foundUser = Users.filter( item => {
+      return userName == item.username && password == item.password;
+  } );
+
+  if ( data.username.length == 0 || data.password.length == 0 ) {
+      Alert.alert('Wrong Input!', 'Username or password field cannot be empty.', [
+          {text: 'Okay'}
+      ]);
+      return;
+  }
+
+  if ( foundUser.length == 0 ) {
+      Alert.alert('Invalid User!', 'Username or password is incorrect.', [
+          {text: 'Okay'}
+      ]);
+      return;
+  }
+  signIn(foundUser);
+  }
 
   return (
-    <Animated.View
-      style={[
-        StyleSheet.absoluteFillObject,
-        styles.container,
-        { backgroundColor },
-      ]}
-    >
-      <Animated.View
-        style={[
-          styles.circle,
-          {
-            backgroundColor: dotBgColor,
-            transform: [
-              { perspective: 200 },
-              {
-                rotateY: animatedValue2.interpolate({
-                  inputRange: [0, 0.5, 1],
-                  outputRange: ['0deg', '-90deg', '-180deg'],
-                }),
-              },
+    <View style={styles.container}>
+      <StatusBar backgroundColor='#009387' barStyle="light-content"/>
+    <View style={styles.header}>
+      <Text style={styles.text_header}>Create an account!</Text>
+      </View>
+    <Animatable.View 
+      animation="fadeInUpBig"
+      style={styles.footer}>
 
-              {
-                scale: animatedValue2.interpolate({
-                  inputRange: [0, 0.5, 1],
-                  outputRange: [1, 6, 1],
-                }),
-              },
+      <Text style={styles.text_footer}
+      >Username</Text>
+      <View style={styles.action}>
+        <FontAwesome
+          name="user-o"
+          color="#05375a"
+          size={20}
+        />
 
-              {
-                translateX: animatedValue2.interpolate({
-                  inputRange: [0, 0.5, 1],
-                  outputRange: ['0%', '50%', '0%'],
-                }),
-              },
-            ],
-          },
-        ]}
-      >
-        <TouchableOpacity onPress={onPress}>
-          <Animated.View
-            style={[
-              styles.button,
-              {
-                transform: [
-                  {
-                    scale: animatedValue.interpolate({
-                      inputRange: [0, 0.05, 0.5, 1],
-                      outputRange: [1, 0, 0, 1],
-                      // extrapolate: "clamp"
-                    }),
-                  },
-                  {
-                    rotateY: animatedValue.interpolate({
-                      inputRange: [0, 0.5, 0.9, 1],
-                      outputRange: ['0deg', '180deg', '180deg', '180deg'],
-                    }),
-                  },
-                ],
-                opacity: animatedValue.interpolate({
-                  inputRange: [0, 0.05, 0.9, 1],
-                  outputRange: [1, 0, 0, 1],
-                }),
-              },
-            ]}
+        <TextInput
+          placeholder="Your Username"
+          placeholderTextColor="#666666"
+          style={styles.textInput}
+          autoCapitalize="none"
+          onChangeText={(val) => textInputChange(val)}
+        />
+        
+        {data.check_textInputChange ? 
+        <Animatable.View
+          animation="bounceIn"
+        >
+        <Feather
+            name="check-circle"
+            color="green"
+            size={20}
+        />
+        </Animatable.View>
+        : null}
+        </View>
+
+        <Text style={[styles.text_footer, {
+          marginTop: 35
+        }]}>Password</Text>
+        <View style={styles.action}>
+        <Feather
+          name="lock"
+          color="#05375a"
+          size={20}
+        />
+        <TextInput
+          placeholder="Password"
+          secureTextEntry={data.secureTextEntry ? true : false}
+          style={styles.textInput}
+          autoCapitalize="none"
+          onChangeText={(val) => handleConfirmPasswordChange(val)}
+        />
+        <TouchableOpacity
+        onPress={updateSecureTextEntry}
+        >
+        {data.secureTextEntry ?
+        <Feather
+            name="eye-off"
+            color="grey"
+            size={20}
+        />
+        :
+        <Feather
+            name="eye"
+            color="grey"
+            size={20}
+        />
+      }
+
+      </TouchableOpacity>
+      </View>
+
+      <Text style={[styles.text_footer, {
+          marginTop: 35
+        }]}>Confirm Password</Text>
+        <View style={styles.action}>
+        <Feather
+          name="lock"
+          color="#05375a"
+          size={20}
+        />
+        <TextInput
+          placeholder="Confirm Your Password"
+          secureTextEntry={data.secureTextEntry ? true : false}
+          style={styles.textInput}
+          autoCapitalize="none"
+          onChangeText={(val) => handlePasswordChange(val)}
+        />
+        <TouchableOpacity
+        onPress={updateSecureTextEntry}
+        >
+        {data.secureTextEntry ?
+        <Feather
+            name="eye-off"
+            color="grey"
+            size={20}
+        />
+        :
+        <Feather
+            name="eye"
+            color="grey"
+            size={20}
+        />
+      }
+      </TouchableOpacity>
+      </View>
+
+      <View style={styles.button}>
+        <LinearGradient
+        colors={['#013a63', '#05375a']}
+        style={styles.signIn} 
+        >
+        <Text style={[styles.textSign, {
+          color: '#fff'
+        }]}>Sign In</Text>
+        </LinearGradient>
+        
+        <TouchableOpacity
+          onPress={() => navigation.navigate("Sign In")}
+          style={[styles.signIn, {
+            borderColor: "#05375a",
+            borderWidth: 1,
+            marginTop: 15
+          }]}
           >
-            <AnimatedAntDesign name='arrowright' size={28} color={'white'} />
-          </Animated.View>
+
+          <Text style={[styles.textSign, {
+            color: '#05375a'
+          }]}>Sign Up</Text>
         </TouchableOpacity>
-      </Animated.View>
-    </Animated.View>
+
+      </View>
+      </Animatable.View>
+      </View>
+    
   );
 };
 
-/* 
-initialBgColor -> Big background of the element
-bgColor -> initial circle bg color that will be the next slide initial BG Color
-nextBgColor -> next circle bg color after we fully transition the circle and this will be small again
-prev bgColor === next initialBgColor
-prev nextBgColor === next bgColor
-*/
-
-const colors = [
-  {
-    initialBgColor: '#F0EFEB',
-    bgColor: '#577399',
-    nextBgColor: '#577399',
-  },
-
-];
-
-export default function App() {
-  const animatedValue = React.useRef(new Animated.Value(0)).current;
-  const animatedValue2 = React.useRef(new Animated.Value(0)).current;
-  const sliderAnimatedValue = React.useRef(new Animated.Value(0)).current;
-  const inputRange = [...Array(quotes.length).keys()];
-  const [index, setIndex] = React.useState(0);
-
-  const animate = (i) =>
-    Animated.parallel([
-      Animated.timing(sliderAnimatedValue, {
-        toValue: i,
-        duration: TEXT_DURATION,
-        useNativeDriver: true,
-      }),
-      Animated.timing(animatedValue, {
-        toValue: 1,
-        duration: DURATION,
-        useNativeDriver: true,
-      }),
-      Animated.timing(animatedValue2, {
-        toValue: 1,
-        duration: DURATION,
-        useNativeDriver: false,
-      }),
-    ]);
-
-  const onPress = () => {
-    animatedValue.setValue(0);
-    animatedValue2.setValue(0);
-    animate((index + 1) % colors.length).start();
-    setIndex((index + 1) % colors.length);
-  };
-
-  return (
-    <View style={{ flex: 1, justifyContent: 'flex-start', paddingTop: 100 }}>
-      <StatusBar hidden />
-      <Circle
-        index={index}
-        onPress={onPress}
-        quotes={quotes}
-        animatedValue={animatedValue}
-        animatedValue2={animatedValue2}
-      />
-      <Animated.View
-        style={{
-          flexDirection: 'row',
-          transform: [
-            {
-              translateX: sliderAnimatedValue.interpolate({
-                inputRange,
-                outputRange: quotes.map((_, i) => -i * width * 2),
-              }),
-            },
-          ],
-          opacity: sliderAnimatedValue.interpolate({
-            inputRange: [...Array(quotes.length * 2 + 1).keys()].map(
-              (i) => i / 2
-            ),
-            outputRange: [...Array(quotes.length * 2 + 1).keys()].map((i) =>
-              i % 2 === 0 ? 1 : 0
-            ),
-          }),
-        }}
-      >
-        {quotes.slice(0, colors.length).map(({ quote, author }, i) => {
-          return (
-            <View style={{ paddingRight: width, width: width * 2 }} key={i}>
-              <Text
-                style={[styles.paragraph, { color: colors[i].nextBgColor }]}
-              >
-                {quote}
-              </Text>
-              <Text
-                style={[
-                  styles.paragraph,
-                  {
-                    color: colors[i].nextBgColor,
-                    fontSize: 10,
-                    fontWeight: 'normal',
-                    textAlign: 'right',
-                    opacity: 0.8,
-                  },
-                ]}
-              >
-                ______ {author}
-              </Text>
-            </View>
-          );
-        })}
-      </Animated.View>
-    </View>
-  );
-}
+export default SignUp;
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'flex-end',
-    alignItems: 'center',
-    paddingTop: Constants.statusBarHeight,
-    padding: 8,
-    paddingBottom: 50,
-  },
-  paragraph: {
-    margin: 12,
-    fontSize: 20,
-    // fontWeight: 'bold',
-    textAlign: 'center',
-    color: 'white',
-  },
-  button: {
-    height: 100,
-    width: 100,
-    borderRadius: 50,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  circle: {
-    backgroundColor: 'turquoise',
-    width: 100,
-    height: 100,
-    borderRadius: 50,
-  },
-});
+    container: {
+      flex: 1, 
+      backgroundColor: '#05375a'
+    },
+    header: {
+        flex: 1,
+        color: "black",
+        justifyContent: 'flex-end',
+        paddingHorizontal: 20,
+        paddingBottom: 50
+    },
+    footer: {
+        flex: 3,
+        backgroundColor: '#fff',
+        borderTopLeftRadius: 30,
+        borderTopRightRadius: 30,
+        paddingHorizontal: 20,
+        paddingVertical: 30
+    },
+    text_header: {
+        color: '#fff',
+        fontWeight: 'bold',
+        fontSize: 30
+    },
+    text_footer: {
+        color: '#05375a',
+        fontSize: 18
+    },
+    action: {
+        flexDirection: 'row',
+        marginTop: 10,
+        borderBottomWidth: 1,
+        borderBottomColor: '#f2f2f2',
+        paddingBottom: 5
+    },
+    actionError: {
+        flexDirection: 'row',
+        marginTop: 10,
+        borderBottomWidth: 1,
+        borderBottomColor: '#FF0000',
+        paddingBottom: 5
+    },
+    textInput: {
+        flex: 1,
+        marginTop: Platform.OS === 'ios' ? 0 : -12,
+        paddingLeft: 10,
+        color: '#05375a',
+    },
+    errorMsg: {
+        color: '#FF0000',
+        fontSize: 14,
+    },
+    button: {
+        alignItems: 'center',
+        marginTop: 50
+    },
+    signIn: {
+        width: '100%',
+        height: 50,
+        justifyContent: 'center',
+        alignItems: 'center',
+        borderRadius: 10
+    },
+    textSign: {
+        fontSize: 18,
+        fontWeight: 'bold'
+    }
+  });
