@@ -3,11 +3,16 @@ import { View, StyleSheet, Text, TouchableOpacity, Dimensions, Image} from 'reac
 import * as Animatable from 'react-native-animatable';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
 import {LinearGradient} from 'expo-linear-gradient';
-import { useTheme } from '@react-navigation/native';
+
 
 const Splash = ({navigation}) => {
   return(
     <View style={styles.container}>
+      <LinearGradient
+      colors={['#2193b0', '#6dd5ed']}
+      start={{ x: 0, y: 1 }}
+      end={{ x: 1, y: 1 }}
+      style={styles.background}/>
     <View style={styles.header}>    
     <Animatable.Image 
       animation="bounceIn"
@@ -29,7 +34,7 @@ const Splash = ({navigation}) => {
 
       onPress={() => navigation.navigate("Sign In")}>
       <LinearGradient
-          colors={['#97D0DD', '#5DB6CA']}
+          colors={['#6dd5ed', '#5DB6CA']}
           style={styles.signIn}
         >
         <Text style={styles.textSign}>Get Started</Text>
@@ -54,6 +59,13 @@ const height_logo = height * 0.28;
   container: {
     flex: 1, 
     backgroundColor: '#a8c9d8'
+  },
+  background: {
+    position: 'absolute',
+    left: 0,
+    right: 0,
+    top: 0,
+    height: 1000,
   },
   header: {
       flex: 2,

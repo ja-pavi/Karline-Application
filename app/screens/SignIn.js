@@ -103,7 +103,12 @@ const SignIn = ({navigation}) => {
 
   return (
     <View style={styles.container}>
-      <StatusBar backgroundColor='#009387' barStyle="light-content"/>
+      <StatusBar backgroundColor='transparent' barStyle="light-content"/>
+    <LinearGradient
+      colors={['#2193b0', '#6dd5ed']}
+      start={{ x: 0, y: 1 }}
+      end={{ x: 1, y: 1 }}
+      style={styles.background}/>
     <View style={styles.header}>
       <Text style={styles.text_header}>Welcome to Klein Carpool!</Text>
       </View>
@@ -178,7 +183,7 @@ const SignIn = ({navigation}) => {
 
       <View style={styles.button}>
         <LinearGradient
-        colors={['#97D0DD', '#5DB6CA']}
+        colors={['#6dd5ed', '#5DB6CA']}
         style={styles.signIn} 
         >
         <Text style={[styles.textSign, {
@@ -189,7 +194,7 @@ const SignIn = ({navigation}) => {
         <TouchableOpacity
           onPress={() => navigation.navigate("Sign Up")}
           style={[styles.signIn, {
-            borderColor: "#5DB6CA",
+            borderColor: "#6dd5ed",
             borderWidth: 1,
             marginTop: 15
           }]}
@@ -220,6 +225,13 @@ const styles = StyleSheet.create({
         justifyContent: 'flex-end',
         paddingHorizontal: 20,
         paddingBottom: 50
+    },
+    background: {
+      position: 'absolute',
+      left: 0,
+      right: 0,
+      top: 0,
+      height: 1000,
     },
     footer: {
         flex: 3,

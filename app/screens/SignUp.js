@@ -129,7 +129,12 @@ const SignUp = ({navigation}) => {
 
   return (
     <View style={styles.container}>
-      <StatusBar backgroundColor='#009387' barStyle="light-content"/>
+    <StatusBar backgroundColor='#009387' barStyle="light-content"/>
+    <LinearGradient
+      colors={['#141E30', '#243B55']}
+      start={{ x: 0, y: 1 }}
+      end={{ x: 1, y: 1 }}
+      style={styles.background}/>
     <View style={styles.header}>
       <Text style={styles.text_header}>Create an account!</Text>
       </View>
@@ -240,7 +245,7 @@ const SignUp = ({navigation}) => {
 
       <View style={styles.button}>
         <LinearGradient
-        colors={['#013a63', '#05375a']}
+        colors={['#243B55', '#141E30']}
         style={styles.signIn} 
         >
         <Text style={[styles.textSign, {
@@ -282,6 +287,13 @@ const styles = StyleSheet.create({
         justifyContent: 'flex-end',
         paddingHorizontal: 20,
         paddingBottom: 50
+    },
+    background: {
+      position: 'absolute',
+      left: 0,
+      right: 0,
+      top: 0,
+      height: 1000,
     },
     footer: {
         flex: 3,
