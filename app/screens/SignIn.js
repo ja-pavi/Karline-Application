@@ -110,7 +110,7 @@ const SignIn = ({navigation}) => {
       end={{ x: 1, y: 1 }}
       style={styles.background}/>
     <View style={styles.header}>
-      <Text style={styles.text_header}>Welcome to Klein Carpool!</Text>
+      <Text style={styles.text_header}>Welcome to Klein Carpool</Text>
       </View>
     <Animatable.View 
       animation="fadeInUpBig"
@@ -194,7 +194,7 @@ const SignIn = ({navigation}) => {
         <TouchableOpacity
           onPress={() => navigation.navigate("Sign Up")}
           style={[styles.signIn, {
-            borderColor: "#6dd5ed",
+            borderColor: "#5DB6CA",
             borderWidth: 1,
             marginTop: 15
           }]}

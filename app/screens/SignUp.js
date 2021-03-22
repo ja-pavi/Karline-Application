@@ -136,7 +136,7 @@ const SignUp = ({navigation}) => {
       end={{ x: 1, y: 1 }}
       style={styles.background}/>
     <View style={styles.header}>
-      <Text style={styles.text_header}>Create an account!</Text>
+      <Text style={styles.text_header}>Create an account</Text>
       </View>
     <Animatable.View 
       animation="fadeInUpBig"
