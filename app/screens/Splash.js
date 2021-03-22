@@ -5,29 +5,31 @@ import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
 import {LinearGradient} from 'expo-linear-gradient';
 import { useTheme } from '@react-navigation/native';
 
-const Splash = () => {
+const Splash = ({navigation}) => {
   return(
     <View style={styles.container}>
-    <StatusBar backgroundColor='#009387' barStyle="light-content"/>
     <View style={styles.header}>    
     <Animatable.Image 
       animation="bounceIn"
-      duraton="1500"
+      duraton="1000"
       source={require("../../assets/splashlogo.png")}
       style={styles.logo}
       resizeMode="stretch"
       />
       </View>
-      <Animatable.View
-      animation="bounceIn"
-      duraton="1500" 
+
+    <Animatable.View
+      animation="fadeInUpBig"
+      duraton="1000" 
       style={styles.footer}> 
           <Text style={styles.title}>The new way to carpool!</Text>
           <Text style={styles.text}>Sign in with account</Text>
-          <View style={styles.button}>
-      <TouchableOpacity onPress={alert('Click')}>
+      <View style={styles.button}>
+      <TouchableOpacity 
+
+      onPress={() => navigation.navigate("Sign In")}>
       <LinearGradient
-          colors={['#5DB6CA', '#97D0DD']}
+          colors={['#97D0DD', '#5DB6CA']}
           style={styles.signIn}
         >
         <Text style={styles.textSign}>Get Started</Text>
@@ -36,7 +38,7 @@ const Splash = () => {
           color="#fff"
           size={20}
           />
-        </LinearGradient>
+      </LinearGradient>
       </TouchableOpacity>
       </View>
       </Animatable.View>
@@ -85,11 +87,11 @@ const height_logo = height * 0.28;
       
   },
   signIn: {
-      width: 150,
+      width: 125,
       height: 40,
       justifyContent: 'center',
       alignItems: 'center',
-      borderRadius: 50,
+      borderRadius: 20,
       flexDirection: 'row'
   },
   textSign: {
