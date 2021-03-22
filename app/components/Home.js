@@ -14,13 +14,13 @@ const styles = StyleSheet.create({
    flex: 1,
    justifyContent: 'center',
    alignItems: 'center',
-   backgroundColor: "#F0EFEB"
+   backgroundColor: "#fff"
   },
 
   text: {
       fontSize: 20,
       fontWeight: 'bold',
-      color: "#DCD9D0"
+      color: "#6dd5ed"
   }
 })
 export default Home;                          

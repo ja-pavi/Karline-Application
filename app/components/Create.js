@@ -4,7 +4,7 @@ import { View, StyleSheet, Text } from 'react-native'
 const Create = () => {
  return(
   <View style={styles.container}>
-    <Text style={styles.text}>Create</Text>
+    <Text style={styles.text}>Settings</Text>
   </View>
   )
 }
@@ -15,13 +15,13 @@ const styles = StyleSheet.create({
    flex: 1,
    justifyContent: 'center',
    alignItems: 'center',
-   backgroundColor: "#99C1DE"
+   backgroundColor: "#fff"
   },
 
   text: {
       fontSize: 20,
       fontWeight: 'bold',
-      color: "#74ABD2"
+      color: "#6dd5ed"
   }
 })
 export default Create; 
