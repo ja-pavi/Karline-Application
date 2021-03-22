@@ -245,7 +245,7 @@ const SignUp = ({navigation}) => {
         >
         <Text style={[styles.textSign, {
           color: '#fff'
-        }]}>Sign In</Text>
+        }]}>Sign Up</Text>
         </LinearGradient>
         
         <TouchableOpacity
@@ -259,7 +259,7 @@ const SignUp = ({navigation}) => {
 
           <Text style={[styles.textSign, {
             color: '#05375a'
-          }]}>Sign Up</Text>
+          }]}>Sign In</Text>
         </TouchableOpacity>
 
       </View>
