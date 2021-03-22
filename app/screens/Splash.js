@@ -82,7 +82,11 @@ const height_logo = height * 0.28;
   },
   logo: {
       width: 400,
-      height: 400
+      height: 400,
+      shadowColor: '#303838',
+      shadowOffset: { width: 1, height: 1 },
+      shadowRadius: 10,
+      shadowOpacity: 0.5,
   },
   title: {
       color: '#05375a',
