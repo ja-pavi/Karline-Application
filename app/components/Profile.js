@@ -1,13 +1,11 @@
 
 import React, { useState, useEffect } from 'react';
-import { StyleSheet, Text, SafeAreaView, View, TextInput, Image, TouchableOpacity, Button, Platform, ImageBackground } from 'react-native';
+import { StyleSheet, Text, SafeAreaView, View, TextInput, Image, TouchableOpacity, Platform} from 'react-native';
 import RNPickerSelect from 'react-native-picker-select';
 import 'react-native-gesture-handler';
 import * as ImagePicker from 'expo-image-picker';
 import { Ionicons } from '@expo/vector-icons';
-import { color } from 'react-native-reanimated';
 import { StatusBar } from 'expo-status-bar';
-
 
 const Profile = () => {
   const [name, setName] = useState('');
@@ -47,22 +45,24 @@ const Profile = () => {
   return (
   <SafeAreaView style={styles.parentContainer}>
     <StatusBar translucent backgroundColor='transparent' />
-    <View style={styles.topView}></View>
+    <View style={{backgroundColor: '#5DB6CA', width: 500, height:231, marginTop: -50}}></View>
     <View style={styles.triangleCornerLayer}></View>
-    <Text style={styles.titleText}>Add Student</Text>
+    <Text style={{position: 'absolute', top:110, alignItems: 'center', fontWeight: "bold", color: '#FFF', fontSize: 45}}>Add Student</Text>
+    
     <View style={styles.buttonIcon}>
       <Ionicons name='person-add' size={90} color='#DCDCDC'/>
     </View>
+    
     <TouchableOpacity style={styles.pictureButton} onPress={pickImage}>
       {image && <Image source={{ uri: image }} style={{width: 195, height: 195, borderRadius: 150}} />}  
     </TouchableOpacity>
-
       
     <View style ={styles.infoContainer}>
       <TextInput
         placeholder="Student's Name"
         style={styles.input}
         onChangeText={(value) => setName(value)} />
+      
       <View style={styles.input}>
         <RNPickerSelect
         style={styles.input}
@@ -111,7 +111,6 @@ const Profile = () => {
         useNativeAndroidPickerStyle={false}
         placeholder={{ label: "Select Grade Level", value: ""}}
         items={[
-
           { label: "Kindergarten", value: "Kindergarten" },
           { label: "1st Grade", value: "1st Grade" },
           { label: "2nd Grade", value: "2nd Grade" },
@@ -120,21 +119,21 @@ const Profile = () => {
           { label: "5th Grade", value: "5th Grade" },
         ]}
         onValueChange={(value) => setGrade(value)} />
+      </View>
+    </View>
+
+    <View Style={styles.input}>
+      <TouchableOpacity>
+        <View style={styles.addStudentButton}>
+          <Text style={{color: "#FFF", fontSize: 15,}}>Add Student</Text>
         </View>
-      </View>
-      <View Style={styles.input}>
-        <TouchableOpacity>
-          <View style={styles.addStudentButton}>
-            <Text style={styles.buttonText}>Add Student</Text>
-          </View>
-        </TouchableOpacity>
-      </View>
-    </SafeAreaView>
+      </TouchableOpacity>
+    </View>
+  </SafeAreaView>
   )
 }
 
 //styles for elements
-
 const styles = StyleSheet.create({
   parentContainer: {
     backgroundColor: '#FFF',
@@ -152,7 +151,7 @@ const styles = StyleSheet.create({
     height: 200,
     justifyContent: 'flex-end',
     alignItems: 'center',
-    marginBottom: 30
+    marginBottom: 35
   },
   text: {
     color: "#000",
@@ -197,12 +196,6 @@ const styles = StyleSheet.create({
     shadowRadius: 20,
     shadowOpacity: 0.5,
   },
-  topView: {
-    backgroundColor: '#5DB6CA',
-    width: 500,
-    height:231,
-    marginTop: -50
-  },
   addStudentButton: {
     backgroundColor: '#5DB6CA',
     height: 40,
@@ -211,11 +204,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     padding: 10,
-    marginTop: 25,
-  },
-  buttonText: {
-    color: "#FFF",
-    fontSize: 15,
+    marginBottom: 35
   },
   triangleCornerLayer: {
     position: 'absolute',
@@ -229,14 +218,6 @@ const styles = StyleSheet.create({
     borderTopWidth: 200,
     borderRightColor: 'transparent',
     borderTopColor: '#5DB6CA'
-  },
-  titleText: {
-    position: 'absolute',
-    top:110,
-    alignItems: 'center',
-    fontWeight: "bold",
-    color: '#FFF',
-    fontSize: 45,
   }
 })
 
