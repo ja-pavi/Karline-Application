@@ -126,8 +126,7 @@ const SignIn = ({navigation}) => {
         />
 
         <TextInput
-          placeholder="Your Username"
-          placeholderTextColor="#666666"
+          placeholder="Username"
           style={styles.textInput}
           autoCapitalize="none"
           onChangeText={(val) => textInputChange(val)}
