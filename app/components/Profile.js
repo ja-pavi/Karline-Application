@@ -125,8 +125,13 @@ const Profile = () => {
 
     <TouchableOpacity>
       <View style={styles.addStudentButton}>
-        <Text style={{color: "#FFF", fontSize: 15,}}>Add Student</Text>
-      </View>
+      <LinearGradient
+          colors={['#6dd5ed', '#5DB6CA']}
+          style={styles.signIn} 
+        >
+        <Text style={[styles.textSign, { color: '#fff'}]}>Add Student</Text>
+        </LinearGradient>
+        </View>
     </TouchableOpacity>
 
   </SafeAreaView>
@@ -137,7 +142,7 @@ const Profile = () => {
 const styles = StyleSheet.create({
   parentContainer: {
     backgroundColor: '#FFF',
-    height: 750,
+    height: 770,
     justifyContent: 'center',
     alignItems: 'center'
   },
@@ -224,11 +229,11 @@ const styles = StyleSheet.create({
     
 },
 signIn: {
-    width: 125,
+    width: 180,
     height: 40,
     justifyContent: 'center',
     alignItems: 'center',
-    borderRadius: 20,
+    borderRadius: 10,
     flexDirection: 'row'
 },
 textSign: {
