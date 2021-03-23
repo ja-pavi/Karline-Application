@@ -6,6 +6,7 @@ import 'react-native-gesture-handler';
 import * as ImagePicker from 'expo-image-picker';
 import { Ionicons } from '@expo/vector-icons';
 import { StatusBar } from 'expo-status-bar';
+import {LinearGradient} from 'expo-linear-gradient'
 
 const Profile = () => {
   const [name, setName] = useState('');
@@ -122,13 +123,16 @@ const Profile = () => {
       </View>
     </View>
 
-    <View Style={styles.input}>
+    <View style={styles.button}>
       <TouchableOpacity>
-        <View style={styles.addStudentButton}>
-          <Text style={{color: "#FFF", fontSize: 15,}}>Add Student</Text>
-        </View>
+      <LinearGradient
+          colors={['#6dd5ed', '#5DB6CA']}
+          style={styles.signIn}
+        >
+        <Text style={styles.textSign}>Add Student</Text>
+      </LinearGradient>
       </TouchableOpacity>
-    </View>
+      </View>
   </SafeAreaView>
   )
 }
@@ -218,8 +222,26 @@ const styles = StyleSheet.create({
     borderTopWidth: 200,
     borderRightColor: 'transparent',
     borderTopColor: '#5DB6CA'
-  }
-})
+  },
+  button: {
+    alignItems: 'flex-end',
+    marginTop: 30,
+    
+},
+signIn: {
+    width: 125,
+    height: 40,
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderRadius: 20,
+    flexDirection: 'row'
+},
+textSign: {
+    color: 'white',
+    fontWeight: 'bold'
+}
+});
+
 
 export default Profile; 
 
