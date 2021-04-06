@@ -121,7 +121,7 @@ const SignIn = ({navigation}) => {
       <View style={styles.action}>
         <FontAwesome
           name="user-o"
-          color="#05375a"
+          color="black"
           size={20}
         />
 
@@ -151,7 +151,7 @@ const SignIn = ({navigation}) => {
         <View style={styles.action}>
         <Feather
           name="lock"
-          color="#05375a"
+          color="black"
           size={20}
         />
         <TextInput
@@ -247,7 +247,7 @@ const styles = StyleSheet.create({
         fontSize: 30
     },
     text_footer: {
-        color: '#05375a',
+        color: 'black',
         fontSize: 18
     },
     action: {

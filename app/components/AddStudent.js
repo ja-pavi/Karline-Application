@@ -222,8 +222,8 @@ const styles = StyleSheet.create({
   addStudentButton: {
     backgroundColor: '#5DB6CA',
     height: 40,
-    width: 180,
-    borderRadius: 10,
+    width: 150,
+    borderRadius: 20,
     justifyContent: 'center',
     alignItems: 'center',
     marginBottom: 40,
@@ -236,11 +236,11 @@ const styles = StyleSheet.create({
     fontSize: 32,
 },
   signIn: {
-    width: 180,
+    width: 150,
     height: 40,
     justifyContent: 'center',
     alignItems: 'center',
-    borderRadius: 10,
+    borderRadius: 20,
     flexDirection: 'row'
 },
   textSign: {

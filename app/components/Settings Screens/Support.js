@@ -2,7 +2,7 @@ import React from 'react'
 import { View, StyleSheet } from 'react-native'
 import {LinearGradient} from 'expo-linear-gradient'
 
-const Here = () => {
+const Support = () => {
   return(
   <View style={styles.container}>
     <LinearGradient
@@ -34,4 +34,4 @@ const styles = StyleSheet.create({
       color: "#6dd5ed"
     }
 })
-export default Here;                          
+export default Support;                          

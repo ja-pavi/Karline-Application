@@ -73,7 +73,7 @@ const height_logo = height * 0.28;
   },
   footer: {
       flex: 1,
-      backgroundColor: '#fff',
+      backgroundColor: 'white',
       borderTopLeftRadius: 30,
       borderTopRightRadius: 30,
       paddingVertical: 50,
@@ -88,12 +88,12 @@ const height_logo = height * 0.28;
       shadowOpacity: 0.5,
   },
   title: {
-      color: '#05375a',
+      color: 'rgba(1,1,1,1)',
       fontSize: 30,
       fontWeight: 'bold'
   },
   text: {
-      color: 'grey',
+      color: 'rgba(1,1,1,0.5)',
       marginTop:5
   },
   button: {
