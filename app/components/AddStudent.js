@@ -8,7 +8,7 @@ import { Ionicons } from '@expo/vector-icons';
 import {LinearGradient} from 'expo-linear-gradient'
 import * as Animatable from 'react-native-animatable';
 
-const Profile = () => {
+const AddStudent = () => {
   const [name, setName] = useState('');
   const [school, setSchool] = useState('');
   const [grade, setGrade] = useState('');
@@ -230,7 +230,7 @@ const styles = StyleSheet.create({
   },
   text_header: {
     marginTop: 75,
-    marginBottom: 35,
+    marginBottom: 27.5,
     color: '#fff',
     fontWeight: 'bold',
     fontSize: 32,
@@ -250,7 +250,7 @@ const styles = StyleSheet.create({
 });
 
 
-export default Profile; 
+export default AddStudent; 
 
 /* prints variables of student
       <Text style={styles.text2}>

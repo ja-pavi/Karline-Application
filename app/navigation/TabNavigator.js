@@ -1,9 +1,9 @@
 import React from 'react';
 import{createBottomTabNavigator} from '@react-navigation/bottom-tabs'
-import Home from '../components/Home'
-import Profile from '../components/Profile'
-import Create from '../components/Create'
+import Here from '../components/Here'
+import Settings from '../components/Settings'
 import { Ionicons } from '@expo/vector-icons';
+import AddStudent from '../components/AddStudent';
 
 
 const Tab = createBottomTabNavigator()
@@ -38,9 +38,9 @@ const TabNavigator = () => {
             }}
            >
         
-     <Tab.Screen name="I'm Here" component={Home} />
-     <Tab.Screen name="Student Info" component={Profile} />
-     <Tab.Screen name="Settings" component={Create} />
+     <Tab.Screen name="I'm Here" component={Here} />
+     <Tab.Screen name="Student Info" component={AddStudent} />
+     <Tab.Screen name="Settings" component={Settings} />
  </Tab.Navigator>
 }
 
