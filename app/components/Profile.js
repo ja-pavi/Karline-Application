@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
-import { StyleSheet, Text, SafeAreaView, View, TextInput, Image, TouchableOpacity, Platform} from 'react-native';
+import { StyleSheet, Text, View, TextInput, Image, TouchableOpacity, Platform} from 'react-native';
 import RNPickerSelect from 'react-native-picker-select';
 import 'react-native-gesture-handler';
 import * as ImagePicker from 'expo-image-picker';
@@ -44,19 +44,27 @@ const Profile = () => {
 
   //returns everything on the view
   return (
-  <SafeAreaView style={styles.parentContainer}>
+  <View style={styles.container}>
     <StatusBar translucent backgroundColor='transparent' />
-    <View style={{backgroundColor: '#5DB6CA', width: 500, height:231, marginTop: -50}}></View>
-    <View style={styles.triangleCornerLayer}></View>
-    <Text style={{position: 'absolute', top:110, alignItems: 'center', fontWeight: "bold", color: '#FFF', fontSize: 45}}>Add Student</Text>
-    
-    <View style={styles.buttonIcon}>
+    <LinearGradient
+    colors={['#2193b0', '#6dd5ed']}
+    start={{ x: 0, y: 1 }}
+    end={{ x: 1, y: 1 }}
+    style={styles.background}/>
+
+    <View style={styles.header}>
+      <Text style={styles.text_header}>Add Student</Text>
+      <View style={styles.buttonIcon}>
       <Ionicons name='person-add' size={90} color='#DCDCDC'/>
     </View>
     
     <TouchableOpacity style={styles.pictureButton} onPress={pickImage}>
-      {image && <Image source={{ uri: image }} style={{width: 195, height: 195, borderRadius: 150}} />}  
+      {image && <Image source={{ uri: image }} style={styles.pictureButton} />}  
     </TouchableOpacity>
+    </View>
+
+    <View style={styles.footer}>
+    
       
     <View style ={styles.infoContainer}>
       <TextInput
@@ -133,23 +141,36 @@ const Profile = () => {
         </LinearGradient>
         </View>
     </TouchableOpacity>
-
-  </SafeAreaView>
+    </View>
+  </View>
   )
 }
 
 //styles for elements
 const styles = StyleSheet.create({
-  parentContainer: {
-    backgroundColor: '#FFF',
-    height: 770,
-    justifyContent: 'center',
-    alignItems: 'center'
+  container: {
+    flex: 1, 
+    backgroundColor: '#5DB6CA',
   },
-  image: {
-    flex: 1,
-    resizeMode: "cover",
-    justifyContent: "center"
+  background: {
+    position: 'absolute',
+    left: 0,
+    right: 0,
+    top: 0,
+    height: 1000,
+  },
+  header: {
+    flex: 3,
+    alignItems: 'center',
+  },
+  footer: {
+    flex: 2.75,
+    backgroundColor: '#fff',
+    borderTopLeftRadius: 30,
+    borderTopRightRadius: 30,
+    paddingVertical: 1,
+    paddingHorizontal: 30,
+    alignItems: 'center',
   },
   infoContainer: {
     flex: 1,
@@ -158,48 +179,44 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginBottom: 30
   },
-  text: {
-    color: "#000",
-    fontSize: 22.5,
-    fontWeight: 'bold',
-  },
   input: {
+    top: -2.5,
+    justifyContent: 'center',
+    alignContent: 'center',
     borderColor: '#DCDCDC',
-    height: 40,
+    height: 45,
     width: 250,
     borderWidth: 1.5,
     borderRadius: 10,
-    justifyContent: 'center',
     padding: 10,
     marginTop: 20,
+    marginBottom: 10,
   },
   buttonIcon: {
-    backgroundColor: '#FFF',
-    width: 210,
-    height: 210,
+    backgroundColor: '#fff',
+    width: 225,
+    height: 225,
     borderRadius: 150,
     justifyContent: 'center',
     alignItems: 'center',
-    padding: 12,
-    marginTop: 0,
     shadowColor: '#303838',
     shadowOffset: { width: 0, height: 5 },
-    shadowRadius: 20,
-    shadowOpacity: 0.8,
+    shadowRadius: 5,
+    shadowOpacity: 0.5,
   },
   pictureButton: {
     backgroundColor: 'transparent',
-    width: 210,
-    height: 210,
-    borderRadius: 150,
+    width: 225,
+    height: 225,
+    marginVertical: -225,
     justifyContent: 'center',
     alignItems: 'center',
-    padding: 12,
-    marginTop: -210,
     shadowColor: 'transparent',
+    borderRadius: 150,
+    
     shadowOffset: { width: 0, height: 5 },
-    shadowRadius: 20,
-    shadowOpacity: 0.5,
+    shadowRadius: 5,
+    shadowOpacity: 0.5
   },
   addStudentButton: {
     backgroundColor: '#5DB6CA',
@@ -208,27 +225,16 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     justifyContent: 'center',
     alignItems: 'center',
-    marginBottom: 45
+    marginBottom: 40,
   },
-  triangleCornerLayer: {
-    position: 'absolute',
-    top:225,
-    left:0,
-    width:300,
-    height: 250,
-    backgroundColor: 'transparent',
-    borderStyle: 'solid',
-    borderRightWidth: 400,
-    borderTopWidth: 200,
-    borderRightColor: 'transparent',
-    borderTopColor: '#5DB6CA'
-  },
-  button: {
-    alignItems: 'flex-end',
-    marginTop: 30,
-    
+  text_header: {
+    marginTop: 75,
+    marginBottom: 35,
+    color: '#fff',
+    fontWeight: 'bold',
+    fontSize: 32,
 },
-signIn: {
+  signIn: {
     width: 180,
     height: 40,
     justifyContent: 'center',
@@ -236,7 +242,7 @@ signIn: {
     borderRadius: 10,
     flexDirection: 'row'
 },
-textSign: {
+  textSign: {
     color: 'white',
     fontWeight: 'bold'
 }
