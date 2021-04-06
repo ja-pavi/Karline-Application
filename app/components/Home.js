@@ -1,14 +1,14 @@
 import React from 'react'
-import { View, StyleSheet, Text } from 'react-native'
+import { View, StyleSheet } from 'react-native'
 import {LinearGradient} from 'expo-linear-gradient'
 
 const Home = () => {
   return(
   <View style={styles.container}>
     <LinearGradient
-    colors={['#b6e0fc', '#b6e0fc', '#ffffff']}
-    start={{ x: 1, y: 1 }}
-    end={{ x: 0, y: 0 }}
+     colors={['#6DD5FA', '#2993b9', '#FFFFFF']}
+     start={{ x: 0, y: 0 }}
+     end={{ x: 1, y: 1 }}
     style={styles.background}/>
    </View>
    )

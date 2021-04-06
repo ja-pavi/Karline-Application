@@ -1,16 +1,10 @@
 import React from 'react'
-import { View, StyleSheet, Text } from 'react-native'
+import { View, StyleSheet } from 'react-native'
 import {LinearGradient} from 'expo-linear-gradient'
 
 const Create = () => {
   return(
   <View style={styles.container}>
-    <LinearGradient
-    colors={['#6dd5ed', '#fff']}
-    start={{ x: 1, y: 0 }}
-    end={{ x: 1, y: 1 }}
-    style={styles.background}/>
-    <Text style={styles.text}>Create</Text>
    </View>
    )
  }
@@ -18,7 +12,7 @@ const Create = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1, 
-    backgroundColor: '#a8c9d8',
+    backgroundColor: '#fff',
   },
   background: {
     position: 'absolute',

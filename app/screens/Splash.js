@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, StyleSheet, Text, TouchableOpacity, Dimensions, Image} from 'react-native'
+import { View, StyleSheet, Text, TouchableOpacity, Dimensions, Image, StatusBar } from 'react-native'
 import * as Animatable from 'react-native-animatable';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
 import {LinearGradient} from 'expo-linear-gradient';
@@ -8,6 +8,7 @@ import {LinearGradient} from 'expo-linear-gradient';
 const Splash = ({navigation}) => {
   return(
     <View style={styles.container}>
+       <StatusBar backgroundColor='transparent' barStyle="light-content"/>
       <LinearGradient
       colors={['#6DD5FA', '#2993b9', '#FFFFFF']}
       start={{ x: 0, y: 0 }}
@@ -16,7 +17,7 @@ const Splash = ({navigation}) => {
     <View style={styles.header}>    
     <Animatable.Image 
       animation="bounceIn"
-      source={require("../../assets/splashlogo.png")}
+      source={require("../../assets/splashlogo2.png")}
       style={styles.logo}
       resizeMode="stretch"
       />
@@ -83,7 +84,7 @@ const height_logo = height * 0.28;
       height: 400,
       shadowColor: '#303838',
       shadowOffset: { width: 1, height: 1 },
-      shadowRadius: 10,
+      shadowRadius: 5,
       shadowOpacity: 0.5,
   },
   title: {

@@ -17,23 +17,23 @@ const TabNavigator = () => {
 
             if (route.name === "I'm Here") {
             iconName = focused
-            ? 'car'
-            : 'car-outline';} 
+            ? 'car-sport'
+            : 'car-sport-outline';} 
             else if (route.name === 'Settings') {
             iconName = focused
-            ? 'cog'
-            : 'cog-outline';}
+            ? 'options'
+            : 'options-outline';}
             else if (route.name === 'Student Info') {
             iconName = focused
-            ? 'person-circle'
-            : 'person-circle-outline';}
+            ? 'person'
+            : 'person-outline';}
             
             return <Ionicons name={iconName} size={size} color={color}     />;
             },
             })}
         
             tabBarOptions={{
-            activeTintColor: '#5DB6CA',
+            activeTintColor: '#46c0eb',
             inactiveTintColor: 'gray',
             }}
            >

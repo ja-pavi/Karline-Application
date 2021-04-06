@@ -1,11 +1,10 @@
 
 import React, { useState, useEffect } from 'react';
-import { StyleSheet, Text, View, TextInput, Image, TouchableOpacity, Platform} from 'react-native';
+import { StyleSheet, Text, View, TextInput, Image, TouchableOpacity, Platform, StatusBar} from 'react-native';
 import RNPickerSelect from 'react-native-picker-select';
 import 'react-native-gesture-handler';
 import * as ImagePicker from 'expo-image-picker';
 import { Ionicons } from '@expo/vector-icons';
-import { StatusBar } from 'expo-status-bar';
 import {LinearGradient} from 'expo-linear-gradient'
 import * as Animatable from 'react-native-animatable';
 
@@ -46,8 +45,8 @@ const Profile = () => {
   //returns everything on the view
   return (
   <View style={styles.container}>
-    <StatusBar translucent backgroundColor='transparent' />
-    <LinearGradient
+     <StatusBar backgroundColor='transparent' barStyle="light-content"/>
+  <LinearGradient
     colors={['#6DD5FA', '#2993b9', '#FFFFFF']}
     start={{ x: 0, y: 0 }}
     end={{ x: 1, y: 1 }}
