@@ -105,8 +105,8 @@ const SignIn = ({navigation}) => {
     <View style={styles.container}>
       <StatusBar backgroundColor='transparent' barStyle="light-content"/>
     <LinearGradient
-      colors={['#2193b0', '#6dd5ed']}
-      start={{ x: 0, y: 1 }}
+      colors={['#6DD5FA', '#2993b9', '#FFFFFF']}
+      start={{ x: 0, y: 0 }}
       end={{ x: 1, y: 1 }}
       style={styles.background}/>
     <View style={styles.header}>
@@ -184,7 +184,7 @@ const SignIn = ({navigation}) => {
       <TouchableOpacity style={styles.button}
       onPress={() => navigation.navigate("TabNavigator")}>
         <LinearGradient
-          colors={['#6dd5ed', '#5DB6CA']}
+          colors={['#6DD5FA', '#2993b9']}
           style={styles.signIn} 
         >
         <Text style={[styles.textSign, { color: '#fff'}]}>Sign In</Text>
@@ -194,14 +194,14 @@ const SignIn = ({navigation}) => {
         <TouchableOpacity
           onPress={() => navigation.navigate("Sign Up")}
           style={[styles.signIn, {
-            borderColor: "#5DB6CA",
+            borderColor: "#2993b9",
             borderWidth: 1,
             marginTop: 15
           }]}
           >
 
           <Text style={[styles.textSign, {
-            color: '#5DB6CA'
+            color: '#2993b9'
           }]}>Sign Up</Text>
         </TouchableOpacity>
 

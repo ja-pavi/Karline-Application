@@ -6,11 +6,10 @@ const Home = () => {
   return(
   <View style={styles.container}>
     <LinearGradient
-    colors={['#6dd5ed', '#fff']}
-    start={{ x: 1, y: 0 }}
-    end={{ x: 1, y: 1 }}
+    colors={['#b6e0fc', '#b6e0fc', '#ffffff']}
+    start={{ x: 1, y: 1 }}
+    end={{ x: 0, y: 0 }}
     style={styles.background}/>
-    <Text style={styles.text}>Home</Text>
    </View>
    )
  }
@@ -19,6 +18,8 @@ const styles = StyleSheet.create({
   container: {
     flex: 1, 
     backgroundColor: '#a8c9d8',
+    justifyContent: 'center',
+    alignContent: 'center'
   },
   background: {
     position: 'absolute',

@@ -9,14 +9,13 @@ const Splash = ({navigation}) => {
   return(
     <View style={styles.container}>
       <LinearGradient
-      colors={['#2193b0', '#6dd5ed']}
-      start={{ x: 0, y: 1 }}
+      colors={['#6DD5FA', '#2993b9', '#FFFFFF']}
+      start={{ x: 0, y: 0 }}
       end={{ x: 1, y: 1 }}
       style={styles.background}/>
     <View style={styles.header}>    
     <Animatable.Image 
       animation="bounceIn"
-      duraton="1000"
       source={require("../../assets/splashlogo.png")}
       style={styles.logo}
       resizeMode="stretch"
@@ -24,8 +23,7 @@ const Splash = ({navigation}) => {
       </View>
 
     <Animatable.View
-      animation="fadeInUpBig"
-      duraton="1000" 
+      animation="fadeInUpBig" 
       style={styles.footer}> 
           <Text style={styles.title}>The new way to carpool!</Text>
           <Text style={styles.text}>Sign in with account</Text>
@@ -34,7 +32,7 @@ const Splash = ({navigation}) => {
       <TouchableOpacity 
       onPress={() => navigation.navigate("Sign In")}>
       <LinearGradient
-          colors={['#6dd5ed', '#5DB6CA']}
+          colors={['#6DD5FA', '#2993b9']}
           style={styles.signIn}
         >
         <Text style={styles.textSign}>Get Started</Text>
