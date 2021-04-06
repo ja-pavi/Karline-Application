@@ -7,6 +7,7 @@ import * as ImagePicker from 'expo-image-picker';
 import { Ionicons } from '@expo/vector-icons';
 import { StatusBar } from 'expo-status-bar';
 import {LinearGradient} from 'expo-linear-gradient'
+import * as Animatable from 'react-native-animatable';
 
 const Profile = () => {
   const [name, setName] = useState('');
@@ -47,8 +48,8 @@ const Profile = () => {
   <View style={styles.container}>
     <StatusBar translucent backgroundColor='transparent' />
     <LinearGradient
-    colors={['#2193b0', '#6dd5ed']}
-    start={{ x: 0, y: 1 }}
+    colors={['#6DD5FA', '#2993b9', '#FFFFFF']}
+    start={{ x: 0, y: 0 }}
     end={{ x: 1, y: 1 }}
     style={styles.background}/>
 
@@ -56,16 +57,18 @@ const Profile = () => {
       <Text style={styles.text_header}>Add Student</Text>
       <View style={styles.buttonIcon}>
       <Ionicons name='person-add' size={90} color='#DCDCDC'/>
-    </View>
+      </View>
     
     <TouchableOpacity style={styles.pictureButton} onPress={pickImage}>
-      {image && <Image source={{ uri: image }} style={styles.pictureButton} />}  
+      {image && <Animatable.Image
+      animation="bounceIn"
+      source={{ uri: image }} style={styles.pictureButton} />}  
     </TouchableOpacity>
     </View>
 
-    <View style={styles.footer}>
-    
-      
+    <Animatable.View 
+    animation="fadeInUpBig"
+    style={styles.footer}>
     <View style ={styles.infoContainer}>
       <TextInput
         placeholder="Student's Name"
@@ -134,14 +137,14 @@ const Profile = () => {
     <TouchableOpacity>
       <View style={styles.addStudentButton}>
       <LinearGradient
-          colors={['#6dd5ed', '#5DB6CA']}
+          colors={['#6DD5FA', '#2993b9']}
           style={styles.signIn} 
         >
         <Text style={[styles.textSign, { color: '#fff'}]}>Add Student</Text>
         </LinearGradient>
         </View>
     </TouchableOpacity>
-    </View>
+    </Animatable.View>
   </View>
   )
 }
@@ -213,7 +216,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     shadowColor: 'transparent',
     borderRadius: 150,
-    
     shadowOffset: { width: 0, height: 5 },
     shadowRadius: 5,
     shadowOpacity: 0.5
