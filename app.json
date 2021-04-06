@@ -5,7 +5,7 @@
     "version": "1.0.0",
     "owner": "k-carpool",
     "orientation": "portrait",
-    "icon": "./assets/logo.png",
+    "icon": "./assets/logo2.png",
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "contain",
