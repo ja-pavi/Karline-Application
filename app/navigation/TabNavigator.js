@@ -17,8 +17,8 @@ const TabNavigator = () => {
 
             if (route.name === "I'm Here") {
             iconName = focused
-            ? 'car-sport'
-            : 'car-sport-outline';} 
+            ? 'car'
+            : 'car-outline';} 
             else if (route.name === 'Settings') {
             iconName = focused
             ? 'options'

@@ -7,6 +7,7 @@ import * as ImagePicker from 'expo-image-picker';
 import { Ionicons } from '@expo/vector-icons';
 import {LinearGradient} from 'expo-linear-gradient'
 import * as Animatable from 'react-native-animatable';
+import FontAwesome from 'react-native-vector-icons/FontAwesome';
 
 const AddStudent = () => {
   const [name, setName] = useState('');
@@ -69,10 +70,14 @@ const AddStudent = () => {
     animation="fadeInUpBig"
     style={styles.footer}>
     <View style ={styles.infoContainer}>
+      
       <TextInput
         placeholder="Student's Name"
         style={styles.input}
-        onChangeText={(value) => setName(value)} />
+        onChangeText={(value) => setName(value)}/>
+
+        
+        
       
       <View style={styles.input}>
         <RNPickerSelect
