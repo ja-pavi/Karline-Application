@@ -171,7 +171,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   footer: {
-    flex: 2.75,
+    flex: 2.4,
     backgroundColor: '#fff',
     borderTopLeftRadius: 30,
     borderTopRightRadius: 30,
@@ -184,7 +184,7 @@ const styles = StyleSheet.create({
     height: 200,
     justifyContent: 'flex-end',
     alignItems: 'center',
-    marginBottom: 30
+    marginBottom: 20
   },
   input: {
     top: -2.5,
@@ -220,6 +220,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     shadowColor: 'transparent',
     borderRadius: 150,
+    borderWidth: 8,
+    borderColor: '#FFF',
     shadowOffset: { width: 0, height: 5 },
     shadowRadius: 5,
     shadowOpacity: 0.5
@@ -231,7 +233,7 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     justifyContent: 'center',
     alignItems: 'center',
-    marginBottom: 40,
+    marginBottom: 25,
   },
   text_header: {
     marginTop: 75,
