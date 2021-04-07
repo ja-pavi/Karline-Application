@@ -13,48 +13,6 @@ const Here = () => {
      start={{ x: 0, y: 0 }}
      end={{ x: 1 , y: 1 }}
      style={styles.background}/>
-
-  <View style={styles.header}>
-    <Animatable.Image 
-      animation="bounceIn"
-      source={require("../../assets/car.png")}
-      style={styles.logo}
-      resizeMode="stretch"
-      />
-    <Animatable.Image 
-      animation="bounceIn"
-      source={require("../../assets/smoke.png")}
-      style={styles.smoke}
-      resizeMode="stretch"
-      />
-
-    <Animatable.Image 
-      animation="bounceIn"
-      source={require("../../assets/car.png")}
-      style={styles.logo}
-      resizeMode="stretch"
-      />
-    <Animatable.Image 
-      animation="bounceIn"
-      source={require("../../assets/smoke.png")}
-      style={styles.smoke}
-      resizeMode="stretch"
-      />
-      
-    <Animatable.Image 
-      animation="bounceIn"
-      source={require("../../assets/car.png")}
-      style={styles.logo}
-      resizeMode="stretch"
-      />
-    <Animatable.Image 
-      animation="bounceIn"
-      source={require("../../assets/smoke.png")}
-      style={styles.smoke}
-      resizeMode="stretch"
-      />
-
-   </View>
    </View>
    )
  }
