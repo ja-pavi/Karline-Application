@@ -1,119 +1,55 @@
 import * as React from 'react';
-import {Easing, TextInput, Animated, Text, View, StyleSheet,} from 'react-native';
+import {Easing, TextInput, Animated, Text, View, StyleSheet,StatusBar} from 'react-native';
 import Constants from 'expo-constants';
 import Svg, { G, Circle, Rect } from 'react-native-svg';
 import { TouchableOpacity } from 'react-native-gesture-handler';
+import LottieView from 'lottie-react-native';
+import Donut from './Donut'
 
-const AnimatedCircle = Animated.createAnimatedComponent(Circle);
-const AnimatedTextInput = Animated.createAnimatedComponent(TextInput);
+const data = [{
+  percentage: 100,
+  color: '#6DD5FA',
+  max: 100
+}]
 
-export default function Donut({
-  percentage = 100,
-  radius = 140,
-  strokeWidth = 14,
-  duration = 2000,
-  color = "#6DD5FA",
-  delay = 0,
-  textColor,
-  max = 100
-}) {
-  const animated = React.useRef(new Animated.Value(0)).current;
-  const circleRef = React.useRef();
-  const inputRef = React.useRef();
-  const circumference = 2 * Math.PI * radius;
-  const halfCircle = radius + strokeWidth;
 
-  const animation = (toValue) => {
-    return Animated.timing(animated, {
-      delay: 1000,
-      toValue,
-      duration,
-      useNativeDriver: true,
-      easing: Easing.out(Easing.ease),
-    }).start(() => {
-      animation(toValue === 0 ? percentage : 0);
-    });
-  };
 
-  React.useEffect(() => {
-    animation(percentage);
-    animated.addListener((v) => {
-      const maxPerc = 100 * v.value / max;
-      const strokeDashoffset = circumference - (circumference * maxPerc) / 100;
-      if (inputRef?.current) {
-        inputRef.current.setNativeProps({
-          text: `${Math.round(v.value)}`,
-        });
-      }
-      if (circleRef?.current) {
-        circleRef.current.setNativeProps({
-          strokeDashoffset,
-        });
-      }
-    }, [max, percentage]);
-
-    return () => {
-      animated.removeAllListeners();
-    };
-  });
+const Here = () => {
 
   return (
     <View style={styles.container}>
-      <Svg
-        height={radius * 2}
-        width={radius * 2}
-        viewBox={`0 0 ${halfCircle * 2} ${halfCircle * 2}`}>
-        <G
-          rotation="-90"
-          origin={`${halfCircle}, ${halfCircle}`}>
-          <Circle
-            ref={circleRef}
-            cx="50%"
-            cy="50%"
-            r={radius}
-            fill="transparent"
-            stroke={color}
-            strokeWidth={strokeWidth}
-            strokeLinecap="round"
-            strokeDashoffset={circumference}
-            strokeDasharray={circumference}
-          />
-          <Circle
-            cx="50%"
-            cy="50%"
-            r={radius}
-            fill="transparent"
-            stroke={color}
-            strokeWidth={strokeWidth}
-            strokeLinejoin="round"
-            strokeOpacity=".1"
-          />
-        </G>
-      </Svg>
-      <AnimatedTextInput
-        ref={inputRef}
-        underlineColorAndroid="transparent"
-        editable={false}
-        defaultValue="0"
-        style={[
-          StyleSheet.absoluteFillObject,
-          { fontSize: radius / 2, color: textColor ?? color },
-          styles.text,
-        ]}
+      <LottieView 
+        style={styles.carLottie}
+        source={require("../../assets/lottie/car.json")}
+        autoPlay
       />
+
+      <StatusBar hidden/>
+      <TouchableOpacity style={{alignSelf: 'center'}}>
+          {data.map((p, i) => {
+            return <Donut key={i} percentage={p.percentage} color={p.color} delay={500 + 100 * i} max={p.max}/>
+          })}
+      </TouchableOpacity>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1, 
-    justifyContent: 'center',
-    alignContent: 'center',
-  alignSelf: 'center'
+    flex: 1,
+    backgroundColor: '#fff' 
   },
   text: { 
     fontWeight: '900',
     textAlign: 'center' 
   },
+  carLottie: {
+    width: 160,
+    height: 160,
+    alignSelf: 'center',
+    marginBottom: 60,
+    marginTop: 20
+  }
 });
+
+export default Here;
