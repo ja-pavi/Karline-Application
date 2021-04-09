@@ -23,19 +23,26 @@ const AddCar = () => {
     <View style ={styles.line_dividers}/>
 
     <View style  ={styles.subheader}>
-      <Text style ={styles.text_subTitle}>Color</Text>
+      <Text style ={styles.text_subTitle}>
+      <MaterialIcons
+          name="brush"
+          color="black"
+          size={20}
+          />  Color</Text>
     </View>
 
     <View style={styles.subheader}>
     <Animatable.View
       animation="bounceIn"
       style={styles.circle}
-      backgroundColor={'black'}>  
+      backgroundColor={'#1a1b1b'}> 
+      <LinearGradient
+        colors={['black', 'white']}
+        start={{ x: 1, y: 0 }}
+        end={{ x: 0, y: 1 }}
+        style={styles.circleshape}/> 
         <TouchableOpacity style={styles.settingBlock}
         onPress={() => navigation.navigate("Profile")}>
-        <Text>
-          <View style={styles.smallcircle}/>
-        </Text>
         </TouchableOpacity>
     </Animatable.View>
   
@@ -53,7 +60,7 @@ const AddCar = () => {
     <Animatable.View
       animation="bounceIn"
       style={styles.circle}
-      backgroundColor={'grey'}>  
+      backgroundColor={'#6b7173'}>  
         <TouchableOpacity style={styles.settingBlock}
         onPress={() => navigation.navigate("Profile")}>
         <Text style={styles.text_footer}>
@@ -64,7 +71,7 @@ const AddCar = () => {
     <Animatable.View
       animation="bounceIn"
       style={styles.circle}
-      backgroundColor={'silver'}> 
+      backgroundColor={'#3846ae'}> 
         <TouchableOpacity style={styles.settingBlock}
         onPress={() => navigation.navigate("Profile")}>
         <Text style={styles.text_footer}>
@@ -75,7 +82,7 @@ const AddCar = () => {
     <Animatable.View
       animation="bounceIn"
       style={styles.circle}
-      backgroundColor={'blue'}> 
+      backgroundColor={'#b18364'}> 
         <TouchableOpacity style={styles.settingBlock}
         onPress={() => navigation.navigate("Profile")}>
         <Text style={styles.text_footer}>
@@ -86,7 +93,7 @@ const AddCar = () => {
     <Animatable.View
       animation="bounceIn"
       style={styles.circle}
-      backgroundColor={'red'}> 
+      backgroundColor={'#ffde24'}> 
         <TouchableOpacity style={styles.settingBlock}
         onPress={() => navigation.navigate("Profile")}>
         <Text style={styles.text_footer}>
@@ -97,7 +104,96 @@ const AddCar = () => {
     <Animatable.View
       animation="bounceIn"
       style={styles.circle}
-      backgroundColor={'brown'}>  
+      backgroundColor={'#e33018'}>  
+        <TouchableOpacity style={styles.settingBlock}
+        onPress={() => navigation.navigate("Profile")}>
+        <Text style={styles.text_footer}>
+        </Text>
+        </TouchableOpacity>
+    </Animatable.View>
+
+    <Animatable.View
+      animation="bounceIn"
+      style={styles.circle}
+      backgroundColor={'#cac0bf'}>  
+        <TouchableOpacity style={styles.settingBlock}
+        onPress={() => navigation.navigate("Profile")}>
+        <Text style={styles.text_footer}>
+        </Text>
+        </TouchableOpacity>
+    </Animatable.View>
+
+    <Animatable.View
+      animation="bounceIn"
+      style={styles.circle}
+      backgroundColor={'#577935'}>  
+        <TouchableOpacity style={styles.settingBlock}
+        onPress={() => navigation.navigate("Profile")}>
+        <Text style={styles.text_footer}>
+        </Text>
+        </TouchableOpacity>
+    </Animatable.View>
+
+    </View>
+    
+    <View styles ={styles.subheader}>
+    <View style ={styles.line_dividers}/>
+    </View>
+
+    <View style  ={styles.subheader}>
+      <Text style ={styles.text_subTitle}>Model</Text>
+    </View>
+
+    <View style={styles.subheader}>
+  
+    <Animatable.View
+      animation="bounceIn"
+      style={styles.circle2}
+      backgroundColor={'#fff'}>  
+        <TouchableOpacity style={styles.settingBlock}
+        onPress={() => navigation.navigate("Profile")}>
+        <Text style={styles.text_footer}>
+        </Text>
+        </TouchableOpacity>
+    </Animatable.View>
+  
+    <Animatable.View
+      animation="bounceIn"
+      style={styles.circle2}
+      backgroundColor={'#fff'}> 
+        <TouchableOpacity style={styles.settingBlock}
+        onPress={() => navigation.navigate("Profile")}>
+        <Text style={styles.text_footer}>
+        </Text>
+        </TouchableOpacity>
+    </Animatable.View>
+  
+    <Animatable.View
+      animation="bounceIn"
+      style={styles.circle2}
+      backgroundColor={'#fff'}> 
+        <TouchableOpacity style={styles.settingBlock}
+        onPress={() => navigation.navigate("Profile")}>
+        <Text style={styles.text_footer}>
+        </Text>
+        </TouchableOpacity>
+    </Animatable.View>
+  
+    <Animatable.View
+      animation="bounceIn"
+      style={styles.circle2}
+      backgroundColor={'#fff'}> 
+        <TouchableOpacity style={styles.settingBlock}
+        onPress={() => navigation.navigate("Profile")}>
+        <Text style={styles.text_footer}>
+        </Text>
+        </TouchableOpacity>
+    </Animatable.View>
+  
+    <Animatable.View
+      animation="bounceIn"
+      style={styles.circle2}
+      backgroundColor={'#fff'}>  
         <TouchableOpacity style={styles.settingBlock}
         onPress={() => navigation.navigate("Profile")}>
         <Text style={styles.text_footer}>
@@ -107,7 +203,7 @@ const AddCar = () => {
     </View>
 
     <View styles ={styles.subheader}>
-    <View style ={styles.line_dividers}/>
+    <View style ={styles.line_dividers3}/>
     </View>
 
     <Animatable.View
@@ -122,19 +218,6 @@ const AddCar = () => {
         </TouchableOpacity>
         <View style ={styles.line_dividers2}/>
     </Animatable.View>
-     
-    <Animatable.View
-      animation="fadeInUpBig"
-      style={styles.footer}>
-        
-        <TouchableOpacity style={styles.settingBlock}
-        onPress={() => navigation.navigate("Profile")}>
-        <Text style={styles.text_footer}>
-        Model
-        </Text>
-        </TouchableOpacity>
-        <View style ={styles.line_dividers2}/>
-    </Animatable.View>
     
     <Animatable.View
       animation="fadeInUpBig"
@@ -142,7 +225,7 @@ const AddCar = () => {
         <TouchableOpacity style={styles.settingBlock}
         onPress={() => navigation.navigate("Profile")}>
         <Text style={styles.text_footer}>
-        License Plate
+        License Plate Number 
         </Text>
         </TouchableOpacity>
         <View style ={styles.line_dividers2}/>
@@ -182,7 +265,7 @@ const styles = StyleSheet.create({
       marginBottom: 10,
   },
     subheader: {
-      flex: 1.8,
+      flex: 2,
       color: "black",
       flexDirection: 'row',
       paddingHorizontal: 10,
@@ -208,20 +291,34 @@ const styles = StyleSheet.create({
     circle: {
       borderTopLeftRadius: 40,
       borderTopRightRadius: 40,
-      paddingHorizontal: 20,
-      height: 40,
+      paddingHorizontal: 15,
+      height: 30,
       width: 18,
-      marginHorizontal: 6,
+      marginHorizontal: 5.4,
       borderBottomLeftRadius: 40,
       borderBottomRightRadius: 40,
       shadowColor: '#303838',
       shadowOffset: { width: 1, height: 1 },
-      shadowRadius: 2.5,
+      shadowRadius: 5,
       shadowOpacity: 0.25,
       justifyContent: 'center',
       alignItems: 'center',
-      borderWidth: 0.2,
   },
+    circle2: {
+      borderTopLeftRadius: 40,
+      borderTopRightRadius: 40,
+      height: 60,
+      width: 60,
+      marginHorizontal: 7,
+      borderBottomLeftRadius: 40,
+      borderBottomRightRadius: 40,
+      shadowColor: '#303838',
+      shadowOffset: { width: 1, height: 1 },
+      shadowRadius: 5,
+      shadowOpacity: 0.25,
+      justifyContent: 'center',
+      alignItems: 'center',
+},
     background: {
       position: 'absolute',
       left: 0,
@@ -237,17 +334,18 @@ const styles = StyleSheet.create({
   },
     text_subTitle: {
         color: 'rgba(1,1,1,1)',
-        fontSize: 22, 
-        fontWeight: 'bold',
+        fontSize: 20, 
         marginStart: 6,
   },
     text_subheader: {
       color: 'rgba(1,1,1,0.8)',
       fontSize: 20,
+      fontWeight: 'bold',
       textAlign: 'right'
     },
     text_footer: {
       color: 'rgba(1,1,1,0.75)',
+      
       fontSize: 18, 
     },
     text_subfooter: {
@@ -270,6 +368,14 @@ const styles = StyleSheet.create({
       marginBottom: 15,
       marginTop: 10,
     },
+    line_dividers3: {
+      borderBottomColor: 'rgba(1,1,1,0.1)',
+      borderBottomWidth: 1,
+      width: 500,
+      alignSelf: 'center',
+      marginBottom: 15,
+      marginTop: 25,
+    },
     addStudentButton: {
       backgroundColor: 'rgba(255,255,255,0.75)',
       height: 60,
@@ -278,7 +384,7 @@ const styles = StyleSheet.create({
       justifyContent: 'center',
       alignItems: 'center',
       marginTop: 10,
-      marginBottom: 25,
+      marginBottom: 20,
       alignSelf: 'center',
       shadowColor: '#303838',
       shadowOffset: { width: 1, height: 1 },
