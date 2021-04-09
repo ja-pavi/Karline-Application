@@ -28,7 +28,11 @@ const Settings = ({navigation}) => {
       <TouchableOpacity style={styles.settingBlock}
       onPress={() => navigation.navigate("Profile")}>
       <Text style={styles.text_footer}>
-      Profile
+      Profile                                                                      <MaterialIcons
+          name="navigate-next"
+          color="black"
+          size={24}
+          />
       </Text>
       </TouchableOpacity>
       <Text style={styles.text_subfooter}>
@@ -39,7 +43,11 @@ const Settings = ({navigation}) => {
       <TouchableOpacity style={styles.settingBlock}
       onPress={() => navigation.navigate("")}>
       <Text style={styles.text_footer}>
-      Settings
+      Settings                                                                   <MaterialIcons
+          name="navigate-next"
+          color="black"
+          size={24}
+          />
       </Text>
       </TouchableOpacity>
       <Text style={styles.text_subfooter}>
@@ -50,7 +58,11 @@ const Settings = ({navigation}) => {
       <TouchableOpacity style={styles.settingBlock}
       onPress={() => navigation.navigate("")}>
       <Text style={styles.text_footer}>
-      Pick-Up History
+      Pick-Up History                                                      <MaterialIcons
+          name="navigate-next"
+          color="black"
+          size={24}
+          />
       </Text>
       </TouchableOpacity>
       <Text style={styles.text_subfooter}>
@@ -61,7 +73,11 @@ const Settings = ({navigation}) => {
       <TouchableOpacity style={styles.settingBlock}
       onPress={() => navigation.navigate("")}>
       <Text style={styles.text_footer}>
-      Help
+      Help                                                                         <MaterialIcons
+          name="navigate-next"
+          color="black"
+          size={24}
+          />
       </Text>
       </TouchableOpacity>
       <Text style={styles.text_subfooter}>
