@@ -109,11 +109,11 @@ const styles = StyleSheet.create({
   container: {
     flex: 1, 
     justifyContent: 'center',
-     alignContent: 'center',
-      alignSelf: 'center'
+    alignContent: 'center',
+  alignSelf: 'center'
   },
   text: { 
     fontWeight: '900',
-     textAlign: 'center' 
+    textAlign: 'center' 
   },
 });
