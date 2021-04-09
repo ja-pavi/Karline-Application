@@ -1,60 +1,119 @@
-import React from 'react'
-import { View, StyleSheet, Animated, Image, TouchableOpacity, Text} from 'react-native'
-import {LinearGradient} from 'expo-linear-gradient'
-import * as Animatable from 'react-native-animatable';
-import { TouchableWithoutFeedback } from 'react-native-gesture-handler';
+import * as React from 'react';
+import {Easing, TextInput, Animated, Text, View, StyleSheet,} from 'react-native';
+import Constants from 'expo-constants';
+import Svg, { G, Circle, Rect } from 'react-native-svg';
+import { TouchableOpacity } from 'react-native-gesture-handler';
 
+const AnimatedCircle = Animated.createAnimatedComponent(Circle);
+const AnimatedTextInput = Animated.createAnimatedComponent(TextInput);
 
-const Here = () => {
+export default function Donut({
+  percentage = 100,
+  radius = 140,
+  strokeWidth = 14,
+  duration = 2000,
+  color = "#6DD5FA",
+  delay = 0,
+  textColor,
+  max = 100
+}) {
+  const animated = React.useRef(new Animated.Value(0)).current;
+  const circleRef = React.useRef();
+  const inputRef = React.useRef();
+  const circumference = 2 * Math.PI * radius;
+  const halfCircle = radius + strokeWidth;
 
-  const clicked = () => {
-    console.log('Pressed')
-  }
+  const animation = (toValue) => {
+    return Animated.timing(animated, {
+      delay: 1000,
+      toValue,
+      duration,
+      useNativeDriver: true,
+      easing: Easing.out(Easing.ease),
+    }).start(() => {
+      animation(toValue === 0 ? percentage : 0);
+    });
+  };
 
-  return(
-  <View style={styles.container}>
-    <TouchableOpacity style={styles.imHere} onPress={clicked}>
-      <Text style={{fontSize: 35, color: '#2993b9', }}>I'm Here</Text>
-    </TouchableOpacity>
-  </View>
-   )
- }
+  React.useEffect(() => {
+    animation(percentage);
+    animated.addListener((v) => {
+      const maxPerc = 100 * v.value / max;
+      const strokeDashoffset = circumference - (circumference * maxPerc) / 100;
+      if (inputRef?.current) {
+        inputRef.current.setNativeProps({
+          text: `${Math.round(v.value)}`,
+        });
+      }
+      if (circleRef?.current) {
+        circleRef.current.setNativeProps({
+          strokeDashoffset,
+        });
+      }
+    }, [max, percentage]);
+
+    return () => {
+      animated.removeAllListeners();
+    };
+  });
+
+  return (
+    <View style={styles.container}>
+      <Svg
+        height={radius * 2}
+        width={radius * 2}
+        viewBox={`0 0 ${halfCircle * 2} ${halfCircle * 2}`}>
+        <G
+          rotation="-90"
+          origin={`${halfCircle}, ${halfCircle}`}>
+          <Circle
+            ref={circleRef}
+            cx="50%"
+            cy="50%"
+            r={radius}
+            fill="transparent"
+            stroke={color}
+            strokeWidth={strokeWidth}
+            strokeLinecap="round"
+            strokeDashoffset={circumference}
+            strokeDasharray={circumference}
+          />
+          <Circle
+            cx="50%"
+            cy="50%"
+            r={radius}
+            fill="transparent"
+            stroke={color}
+            strokeWidth={strokeWidth}
+            strokeLinejoin="round"
+            strokeOpacity=".1"
+          />
+        </G>
+      </Svg>
+      <AnimatedTextInput
+        ref={inputRef}
+        underlineColorAndroid="transparent"
+        editable={false}
+        defaultValue="0"
+        style={[
+          StyleSheet.absoluteFillObject,
+          { fontSize: radius / 2, color: textColor ?? color },
+          styles.text,
+        ]}
+      />
+    </View>
+  );
+}
 
 const styles = StyleSheet.create({
   container: {
     flex: 1, 
-    backgroundColor: '#FFF',
     justifyContent: 'center',
-    alignContent: 'center'
+     alignContent: 'center',
+      alignSelf: 'center'
   },
-  header: {
-    flex: 2,
-    justifyContent: 'center',
-    marginTop: 80,
-    flexDirection: 'row',
+  text: { 
+    fontWeight: '900',
+     textAlign: 'center' 
   },
-  imHere: {
-    borderWidth: 12,
-    borderColor:'#2993b9',
-    width:250,
-    height:250,
-    justifyContent: 'center',
-    alignItems: 'center',
-    alignSelf: 'center',
-    backgroundColor:'#fff',
-    borderRadius:125
-  },
-  background: {
-    position: 'absolute',
-    left: 0,
-    right: 0,
-    top: 0,
-    height: 1000,
-  },
-  text: {
-      fontSize: 20,
-      fontWeight: 'bold',
-      color: "#6dd5ed"
-  }
-})
-export default Here;                          
+});
