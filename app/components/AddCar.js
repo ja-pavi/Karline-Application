@@ -1,10 +1,11 @@
 import React from 'react'
-import { View, StyleSheet, StatusBar, Text, TouchableOpacity } from 'react-native'
+import { View, StyleSheet, StatusBar, Text, TouchableOpacity, TextInput } from 'react-native'
 import {LinearGradient} from 'expo-linear-gradient'
 import * as Animatable from 'react-native-animatable';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
 import { NavigationContainer } from '@react-navigation/native';
 import SettingsNavigator from '../navigation/SettingsNavigator'
+import { Ionicons } from '@expo/vector-icons';
 
 const AddCar = () => {
   return(
@@ -27,7 +28,7 @@ const AddCar = () => {
       <MaterialIcons
           name="brush"
           color="black"
-          size={20}
+          size={22}
           />  Color</Text>
     </View>
 
@@ -141,7 +142,9 @@ const AddCar = () => {
     </View>
 
     <View style  ={styles.subheader}>
-      <Text style ={styles.text_subTitle}>Model</Text>
+      <Text style ={styles.text_subTitle}>
+      <Ionicons name="car-outline" size={24} color="black" 
+      />  Model</Text>
     </View>
 
     <View style={styles.subheader}>
@@ -153,6 +156,7 @@ const AddCar = () => {
         <TouchableOpacity style={styles.settingBlock}
         onPress={() => navigation.navigate("Profile")}>
         <Text style={styles.text_footer}>
+          SUV
         </Text>
         </TouchableOpacity>
     </Animatable.View>
@@ -164,6 +168,7 @@ const AddCar = () => {
         <TouchableOpacity style={styles.settingBlock}
         onPress={() => navigation.navigate("Profile")}>
         <Text style={styles.text_footer}>
+          Sedan
         </Text>
         </TouchableOpacity>
     </Animatable.View>
@@ -175,6 +180,7 @@ const AddCar = () => {
         <TouchableOpacity style={styles.settingBlock}
         onPress={() => navigation.navigate("Profile")}>
         <Text style={styles.text_footer}>
+          Truck
         </Text>
         </TouchableOpacity>
     </Animatable.View>
@@ -186,6 +192,7 @@ const AddCar = () => {
         <TouchableOpacity style={styles.settingBlock}
         onPress={() => navigation.navigate("Profile")}>
         <Text style={styles.text_footer}>
+          Van
         </Text>
         </TouchableOpacity>
     </Animatable.View>
@@ -197,6 +204,7 @@ const AddCar = () => {
         <TouchableOpacity style={styles.settingBlock}
         onPress={() => navigation.navigate("Profile")}>
         <Text style={styles.text_footer}>
+          Sport
         </Text>
         </TouchableOpacity>
     </Animatable.View>
@@ -213,10 +221,15 @@ const AddCar = () => {
         <TouchableOpacity style={styles.settingBlock}
         onPress={() => navigation.navigate("Profile")}>
         <Text style={styles.text_footer}>
-        Make
+        <Ionicons name="receipt-outline" size={24} color="black" 
+        />  Make
         </Text>
         </TouchableOpacity>
         <View style ={styles.line_dividers2}/>
+        <TextInput
+        placeholder="Example: 2016 Lexus IS350"
+        style={styles.input}
+        onChangeText={(value) => setName(value)}/>
     </Animatable.View>
     
     <Animatable.View
@@ -225,18 +238,22 @@ const AddCar = () => {
         <TouchableOpacity style={styles.settingBlock}
         onPress={() => navigation.navigate("Profile")}>
         <Text style={styles.text_footer}>
-        License Plate Number 
+        <Ionicons name="terminal-outline" size={24} color="black" 
+        />  License Plate Number 
         </Text>
         </TouchableOpacity>
         <View style ={styles.line_dividers2}/>
-    </Animatable.View>
+        <TextInput
+        placeholder="Example: KLN CRPL"
+        style={styles.input}
+        onChangeText={(value) => setName(value)}/>
+      </Animatable.View>
 
     <TouchableOpacity>
       <View style={styles.addStudentButton}>
       <LinearGradient
           colors={['#6DD5FA', '#2993b9']}
-          style={styles.signIn} 
-        >
+          style={styles.signIn}>
         <Text style={[styles.textSign, { color: '#fff'}]}><MaterialIcons
           name="done"
           color="#fff"
@@ -286,7 +303,6 @@ const styles = StyleSheet.create({
       shadowOffset: { width: 1, height: 1 },
       shadowRadius: 5,
       shadowOpacity: 0.25,
-      
   },
     circle: {
       borderTopLeftRadius: 40,
@@ -330,22 +346,22 @@ const styles = StyleSheet.create({
       color: 'rgba(1,1,1,1)',
       fontSize: 20,
       alignSelf: 'center',
-      fontWeight: 'bold',
   },
     text_subTitle: {
         color: 'rgba(1,1,1,1)',
         fontSize: 20, 
         marginStart: 6,
+        justifyContent: 'center',
+        alignContent: 'center',
   },
     text_subheader: {
       color: 'rgba(1,1,1,0.8)',
       fontSize: 20,
       fontWeight: 'bold',
-      textAlign: 'right'
+      textAlign: 'right',
     },
     text_footer: {
       color: 'rgba(1,1,1,0.75)',
-      
       fontSize: 18, 
     },
     text_subfooter: {
@@ -399,5 +415,9 @@ const styles = StyleSheet.create({
       borderRadius: 30,
       flexDirection: 'row',
     },
+    input: { 
+      fontSize: 16,
+      marginTop: 5
+    }
 });
 export default AddCar;                          
