@@ -109,9 +109,11 @@ const SignIn = ({navigation}) => {
       start={{ x: 0, y: 0 }}
       end={{ x: 1, y: 1 }}
       style={styles.background}/>
-    <View style={styles.header}>
+    <Animatable.View 
+    animation="slideInDown"
+    style={styles.header}>
       <Text style={styles.text_header}>Welcome to Klein Carpool</Text>
-      </View>
+      </Animatable.View>
     <Animatable.View 
       animation="fadeInUpBig"
       style={styles.footer}>
@@ -205,6 +207,7 @@ const SignIn = ({navigation}) => {
           }]}>Sign Up</Text>
         </TouchableOpacity>
 
+        <Text style={styles.text}>* If you don't have an account, click "Sign Up" to make one.</Text>
       </View>
       </Animatable.View>
       </View>
@@ -283,10 +286,16 @@ const styles = StyleSheet.create({
         height: 50,
         justifyContent: 'center',
         alignItems: 'center',
-        borderRadius: 10
+        borderRadius: 10,
     },
     textSign: {
         fontSize: 18,
         fontWeight: 'bold'
+    },
+    text: {
+      marginTop: 10,
+      fontSize: 12,
+      color: 'rgba(1,1,1,0.5)',
+      paddingHorizontal: 5,
     }
   });

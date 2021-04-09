@@ -8,6 +8,7 @@ import { Ionicons } from '@expo/vector-icons';
 import {LinearGradient} from 'expo-linear-gradient'
 import * as Animatable from 'react-native-animatable';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
+import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
 
 const AddStudent = () => {
   const [name, setName] = useState('');
@@ -53,7 +54,9 @@ const AddStudent = () => {
     end={{ x: 1, y: 1 }}
     style={styles.background}/>
 
-    <View style={styles.header}>
+  <Animatable.View 
+      animation="slideInDown"
+     style={styles.header}>
       <Text style={styles.text_header}>Add Student</Text>
       <View style={styles.buttonIcon}>
       <Ionicons name='person-add' size={90} color='#DCDCDC'/>
@@ -64,17 +67,19 @@ const AddStudent = () => {
       animation="bounceIn"
       source={{ uri: image }} style={styles.pictureButton} />}  
     </TouchableOpacity>
-    </View>
+    </Animatable.View>
 
     <Animatable.View 
     animation="fadeInUpBig"
     style={styles.footer}>
     <View style ={styles.infoContainer}>
-      
       <TextInput
         placeholder="Student's Name"
         style={styles.input}
-        onChangeText={(value) => setName(value)}/>
+        onChangeText={(value) => setName(value)}>
+
+      </TextInput>
+      
 
         
         
@@ -175,7 +180,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     borderTopLeftRadius: 30,
     borderTopRightRadius: 30,
-    paddingVertical: 1,
+    paddingVertical: 0,
     paddingHorizontal: 30,
     alignItems: 'center',
   },
@@ -233,10 +238,14 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     justifyContent: 'center',
     alignItems: 'center',
-    marginBottom: 25,
+    marginBottom: 30,
+    shadowColor: '#303838',
+      shadowOffset: { width: 1, height: 1 },
+      shadowRadius: 3,
+      shadowOpacity: 0.25,
   },
   text_header: {
-    marginTop: 75,
+    marginTop: 85,
     marginBottom: 27.5,
     color: '#fff',
     fontWeight: 'bold',

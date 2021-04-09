@@ -136,8 +136,8 @@ const AddCar = () => {
     </Animatable.View>
 
     </View>
-    
-    <View styles ={styles.subheader}>
+    <Text style={styles.text}> * If color not shown, include it in your make. </Text>
+    <View style ={styles.subheader}>
     <View style ={styles.line_dividers}/>
     </View>
 
@@ -210,7 +210,8 @@ const AddCar = () => {
     </Animatable.View>
     </View>
 
-    <View styles ={styles.subheader}>
+    
+    <View style ={styles.subheader}>
     <View style ={styles.line_dividers3}/>
     </View>
 
@@ -250,7 +251,9 @@ const AddCar = () => {
       </Animatable.View>
 
     <TouchableOpacity>
-      <View style={styles.addStudentButton}>
+    <Animatable.View
+    animation="fadeInUpBig"
+    style={styles.addStudentButton}>
       <LinearGradient
           colors={['#6DD5FA', '#2993b9']}
           style={styles.signIn}>
@@ -260,8 +263,10 @@ const AddCar = () => {
           size={30}
           /></Text>
         </LinearGradient>
-        </View>
+      </Animatable.View>
     </TouchableOpacity>
+
+
 
   </View>
    )
@@ -332,6 +337,7 @@ const styles = StyleSheet.create({
       shadowOffset: { width: 1, height: 1 },
       shadowRadius: 5,
       shadowOpacity: 0.25,
+      marginBottom: 50,
       justifyContent: 'center',
       alignItems: 'center',
 },
@@ -368,6 +374,11 @@ const styles = StyleSheet.create({
       color: 'rgba(1,1,1,0.2)',
       fontSize: 14, 
     },
+    text: {
+      color: 'rgba(1,1,1,0.3)',
+      paddingHorizontal: 15,
+      marginTop: 10,
+    },
     line_dividers: {
       borderBottomColor: 'rgba(1,1,1,0.1)',
       borderBottomWidth: 1,
@@ -390,7 +401,7 @@ const styles = StyleSheet.create({
       width: 500,
       alignSelf: 'center',
       marginBottom: 15,
-      marginTop: 25,
+      marginTop: 50,
     },
     addStudentButton: {
       backgroundColor: 'rgba(255,255,255,0.75)',

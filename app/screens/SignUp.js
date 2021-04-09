@@ -135,9 +135,11 @@ const SignUp = ({navigation}) => {
       start={{ x: 0, y: 1 }}
       end={{ x: 1, y: 1 }}
       style={styles.background}/>
-    <View style={styles.header}>
+   <Animatable.View 
+    animation="slideInDown"
+    style ={styles.header}>
       <Text style={styles.text_header}>Create an account</Text>
-      </View>
+      </Animatable.View>
     <Animatable.View 
       animation="fadeInUpBig"
       style={styles.footer}>

@@ -9,7 +9,7 @@ const Here = () => {
   return(
   <View style={styles.container}>
     <LinearGradient
-     colors={['#6DD5FA', '#2993b9', '#FFFFFF']}
+     colors={['#FFF', '#FFF', '#FFFFFF']}
      start={{ x: 0, y: 0 }}
      end={{ x: 1 , y: 1 }}
      style={styles.background}/>
