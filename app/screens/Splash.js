@@ -88,9 +88,9 @@ const height_logo = height * 0.28;
       shadowOpacity: 0.5,
   },
   title: {
-      color: 'rgba(1,1,1,1)',
+      color: 'rgba(1,1,1,0.8)',
       fontSize: 30,
-      fontWeight: 'bold'
+      fontWeight: 'bold',
   },
   text: {
       color: 'rgba(1,1,1,0.5)',

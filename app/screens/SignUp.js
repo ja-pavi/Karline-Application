@@ -212,7 +212,7 @@ const SignUp = ({navigation}) => {
       <Text style={[styles.text_footer, {
           marginTop: 35
         }]}>Confirm Password</Text>
-        <View style={styles.action}>
+        <View style={styles.action2}>
         <Feather
           name="lock"
           color="#05375a"
@@ -244,7 +244,10 @@ const SignUp = ({navigation}) => {
       </TouchableOpacity>
       </View>
 
-      <View style={styles.button}>
+    
+      <TouchableOpacity
+          onPress={() => navigation.navigate("Sign In")} 
+          styles={styles.button}>
         <LinearGradient
         colors={['#243B55', '#141E30']}
         style={styles.signIn} 
@@ -253,6 +256,7 @@ const SignUp = ({navigation}) => {
           color: '#fff'
         }]}>Sign Up</Text>
         </LinearGradient>
+      </TouchableOpacity>
         
         <TouchableOpacity
           onPress={() => navigation.navigate("Sign In")}
@@ -268,7 +272,7 @@ const SignUp = ({navigation}) => {
           }]}>Sign In</Text>
         </TouchableOpacity>
 
-      </View>
+   
       </Animatable.View>
       </View>
     
@@ -320,6 +324,14 @@ const styles = StyleSheet.create({
         borderBottomColor: '#f2f2f2',
         paddingBottom: 5
     },
+    action2: {
+      flexDirection: 'row',
+      marginTop: 10,
+      borderBottomWidth: 1,
+      borderBottomColor: '#f2f2f2',
+      paddingBottom: 10, 
+      marginBottom: 50,
+  },
     actionError: {
         flexDirection: 'row',
         marginTop: 10,
