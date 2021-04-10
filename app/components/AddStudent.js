@@ -240,9 +240,9 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginBottom: 30,
     shadowColor: '#303838',
-      shadowOffset: { width: 1, height: 1 },
-      shadowRadius: 3,
-      shadowOpacity: 0.25,
+    shadowOffset: { width: 1, height: 1 },
+    shadowRadius: 3,
+    shadowOpacity: 0.25,
   },
   text_header: {
     marginTop: 85,
