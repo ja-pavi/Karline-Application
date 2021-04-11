@@ -31,7 +31,9 @@ export default function Here({
       duration,
       useNativeDriver: true,
       easing: Easing.out(Easing.ease),
-    })
+    }).start(() => {
+      animation(toValue === 0 ? percentage : 0);
+    });
   };
 
   React.useEffect(() => {
