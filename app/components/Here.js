@@ -163,7 +163,7 @@ const styles = StyleSheet.create({
     fontWeight: '700',
     textAlign: 'center',
     justifyContent: 'center',
-    marginTop: 130,
+    marginTop: 132.5,
     color: "rgba(1,1,1,0.7)",
     textAlignVertical: "center",
     paddingBottom: 3
@@ -184,7 +184,7 @@ const styles = StyleSheet.create({
     textAlignVertical: 'center',
     marginTop: 10,
     marginBottom: 50,
-    color: "rgba(1,1,1,0.7)"
+    color: "#6DD5FA"
   },
     highlightText: {
       fontSize: 12,
