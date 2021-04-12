@@ -28,7 +28,7 @@ const Settings = ({navigation}) => {
       <TouchableOpacity style={styles.settingBlock}
       onPress={() => navigation.navigate("Profile")}>
       <Text style={styles.text_footer}>
-      Profile                                                                      <MaterialIcons
+      Profile                                                           <MaterialIcons
           name="navigate-next"
           color="black"
           size={24}
@@ -43,7 +43,7 @@ const Settings = ({navigation}) => {
       <TouchableOpacity style={styles.settingBlock}
       onPress={() => navigation.navigate("")}>
       <Text style={styles.text_footer}>
-      Settings                                                                   <MaterialIcons
+      Settings                                                       <MaterialIcons
           name="navigate-next"
           color="black"
           size={24}
@@ -58,7 +58,7 @@ const Settings = ({navigation}) => {
       <TouchableOpacity style={styles.settingBlock}
       onPress={() => navigation.navigate("")}>
       <Text style={styles.text_footer}>
-      Pick-Up History                                                      <MaterialIcons
+      Pick-Up History                                          <MaterialIcons
           name="navigate-next"
           color="black"
           size={24}
@@ -73,7 +73,7 @@ const Settings = ({navigation}) => {
       <TouchableOpacity style={styles.settingBlock}
       onPress={() => navigation.navigate("")}>
       <Text style={styles.text_footer}>
-      Help                                                                         <MaterialIcons
+      Help                                                              <MaterialIcons
           name="navigate-next"
           color="black"
           size={24}
@@ -109,11 +109,12 @@ const styles = StyleSheet.create({
       alignContent: 'center'
   },
     header: {
-      flex: 1,
+      flex: 0.8,
       color: "black",
       justifyContent: 'flex-end',
       paddingHorizontal: 20,
-      paddingBottom: 50
+      paddingBottom: 50,
+      marginTop: 15,
   },
     footer: {
       flex: 5,
@@ -121,7 +122,7 @@ const styles = StyleSheet.create({
       borderTopLeftRadius: 30,
       borderTopRightRadius: 30,
       paddingHorizontal: 20,
-      paddingVertical: 30
+      
   },
     background: {
       position: 'absolute',
@@ -180,7 +181,7 @@ const styles = StyleSheet.create({
       flexDirection: 'row'
     },
     textSign: {
-      marginTop: 30,
+      marginTop: 5,
       fontSize: 17,
       fontWeight: 'bold',
       alignSelf: 'center'

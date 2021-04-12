@@ -146,7 +146,7 @@ const AddStudent = () => {
     <TouchableOpacity>
       <View style={styles.addStudentButton}>
       <LinearGradient
-          colors={['#6DD5FA', '#2993b9']}
+          colors={['#6DD5FA', '#69d0f5']}
           style={styles.signIn} 
         >
         <Text style={[styles.textSign, { color: '#fff'}]}>Add Student</Text>

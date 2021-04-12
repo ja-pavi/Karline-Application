@@ -4,15 +4,19 @@ import Constants from 'expo-constants';
 import Svg, { G, Circle, Rect } from 'react-native-svg';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import LottieView from 'lottie-react-native';
+import { color } from 'react-native-reanimated';
+import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
+import * as Animatable from 'react-native-animatable';
+import {LinearGradient} from 'expo-linear-gradient'
 
 const AnimatedCircle = Animated.createAnimatedComponent(Circle);
 const AnimatedTextInput = Animated.createAnimatedComponent(TextInput);
 
 export default function Here({
   percentage = 100,
-  radius = 150,
-  strokeWidth = 13,
-  duration = 2500,
+  radius = 160,
+  strokeWidth = 20,
+  duration = 4000,
   color = "#6DD5FA",
   delay = 0,
   textColor,
@@ -65,6 +69,11 @@ export default function Here({
         source={require("../../assets/lottie/car.json")}
         autoPlay
       />
+
+      <Text style={styles.updateText2}>  
+         Are you here yet?
+      </Text>
+
       <StatusBar hidden/>
       <TouchableOpacity style={{alignSelf: 'center'}}>
         <View style={{ width: radius * 2, height: radius * 2 }}>
@@ -102,10 +111,45 @@ export default function Here({
           <Text
               style={[
                 StyleSheet.absoluteFillObject,
-                {fontSize: 60, color: textColor ?? color},styles.text,]}>I'm Here
+                {fontSize: 40},styles.text,]}> 
+                <MaterialIcons
+                name="location-on"
+                color="rgba(1,1,1,0.7)"
+                size={35}
+                /> I'm Here
           </Text>
+
         </View>
       </TouchableOpacity>
+
+      <TouchableOpacity>
+            <Animatable.View
+            animation="bounceIn"
+            style={styles.cancelButton}>
+              <LinearGradient
+                  colors={['#6DD5FA', '#69d0f5']}
+                  style={styles.signIn}>
+                <Text style={[styles.textSign, { color: '#fff'}]}><MaterialIcons
+                  name="close"
+                  color="#fff"
+                  size={30}
+                  /></Text>
+                </LinearGradient>
+              </Animatable.View>
+            </TouchableOpacity>
+
+            <Text style={styles.updateText}>  
+          <MaterialIcons
+                name="near-me"
+                color="#2980B9"
+                size={15}
+                textAlignVertical={"center"}
+                paddingBottom
+                /> Current Location: You are <Text style={styles.highlightText}>INSIDE</Text> the required zone.
+          </Text>
+      
+     
+    
     </View>
   );
 }
@@ -116,15 +160,68 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff' 
   },
   text: { 
-    fontWeight: '600',
+    fontWeight: '700',
     textAlign: 'center',
-    marginTop: 110
+    justifyContent: 'center',
+    marginTop: 130,
+    color: "rgba(1,1,1,0.7)",
+    textAlignVertical: "center",
+    paddingBottom: 3
+  },
+  updateText: {
+    fontSize: 10,
+    textAlign: 'center',
+    fontWeight: 'bold',
+    textAlignVertical: 'center',
+    marginTop: 30,
+    marginBottom: 40,
+    color: "rgba(1,1,1,0.6)"
+  },
+  updateText2: {
+    fontSize: 25,
+    textAlign: 'center',
+    fontWeight: 'bold',
+    textAlignVertical: 'center',
+    marginTop: 10,
+    marginBottom: 50,
+    color: "rgba(1,1,1,0.6)"
+  },
+    highlightText: {
+      fontSize: 12,
+      textAlign: 'center',
+      fontWeight: 'bold',
+      textAlignVertical: 'center',
+      marginTop: 35,
+      color: "#6DD5FA"
   },
   carLottie: {
-    width: 160,
-    height: 160,
+    width: 120,
+    height: 120,
     alignSelf: 'center',
-    marginBottom: 60,
+    marginBottom: 20,
     marginTop: 20
+  },
+  cancelButton: {
+    backgroundColor: 'rgba(255,255,255,0.75)',
+    height: 60,
+    width: 60,
+    borderRadius: 30,
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginTop: 50,
+    marginBottom: 20,
+    alignSelf: 'center',
+    shadowColor: '#303838',
+    shadowOffset: { width: 1, height: 1 },
+    shadowRadius: 5,
+    shadowOpacity: 0.25,
+  },
+  signIn: {
+    width: 60,
+    height: 60,
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderRadius: 30,
+    flexDirection: 'row',
   }
 });

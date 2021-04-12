@@ -33,7 +33,7 @@ const Splash = ({navigation}) => {
       <TouchableOpacity 
       onPress={() => navigation.navigate("Sign In")}>
       <LinearGradient
-          colors={['#6DD5FA', '#2993b9']}
+          colors={['#6DD5FA', '#69d0f5']}
           style={styles.signIn}
         >
         <Text style={styles.textSign}>Get Started</Text>
@@ -88,8 +88,8 @@ const height_logo = height * 0.28;
       shadowOpacity: 0.5,
   },
   title: {
-      color: 'rgba(1,1,1,0.8)',
-      fontSize: 30,
+      color: "rgba(1,1,1,0.7)",
+      fontSize: 28,
       fontWeight: 'bold',
   },
   text: {

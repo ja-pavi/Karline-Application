@@ -186,7 +186,7 @@ const SignIn = ({navigation}) => {
       <TouchableOpacity style={styles.button}
       onPress={() => navigation.navigate("TabNavigator")}>
         <LinearGradient
-          colors={['#6DD5FA', '#2993b9']}
+          colors={['#6DD5FA', '#69d0f5']}
           style={styles.signIn} 
         >
         <Text style={[styles.textSign, { color: '#fff'}]}>Sign In</Text>
@@ -196,14 +196,14 @@ const SignIn = ({navigation}) => {
         <TouchableOpacity
           onPress={() => navigation.navigate("Sign Up")}
           style={[styles.signIn, {
-            borderColor: "#2993b9",
+            borderColor: "#6DD5FA",
             borderWidth: 1,
             marginTop: 15
           }]}
           >
 
           <Text style={[styles.textSign, {
-            color: '#2993b9'
+            color: '#6DD5FA'
           }]}>Sign Up</Text>
         </TouchableOpacity>
 
@@ -247,7 +247,7 @@ const styles = StyleSheet.create({
     text_header: {
         color: '#fff',
         fontWeight: 'bold',
-        fontSize: 30
+        fontSize: 28
     },
     text_footer: {
         color: 'black',

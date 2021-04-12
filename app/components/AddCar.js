@@ -255,7 +255,7 @@ const AddCar = () => {
     animation="fadeInUpBig"
     style={styles.addStudentButton}>
       <LinearGradient
-          colors={['#6DD5FA', '#2993b9']}
+          colors={['#6DD5FA', '#69d0f5']}
           style={styles.signIn}>
         <Text style={[styles.textSign, { color: '#fff'}]}><MaterialIcons
           name="done"
