@@ -141,7 +141,7 @@ export default function Here({
             <Text style={styles.updateText}>  
           <MaterialIcons
                 name="near-me"
-                color="#2980B9"
+                color="rgba(41,128,185,0.7)"
                 size={15}
                 textAlignVertical={"center"}
                 paddingBottom
@@ -175,7 +175,7 @@ const styles = StyleSheet.create({
     textAlignVertical: 'center',
     marginTop: 30,
     marginBottom: 40,
-    color: "rgba(1,1,1,0.6)"
+    color: "rgba(1,1,1,0.3)"
   },
   updateText2: {
     fontSize: 25,
@@ -184,7 +184,7 @@ const styles = StyleSheet.create({
     textAlignVertical: 'center',
     marginTop: 10,
     marginBottom: 50,
-    color: "rgba(1,1,1,0.6)"
+    color: "rgba(1,1,1,0.7)"
   },
     highlightText: {
       fontSize: 12,
