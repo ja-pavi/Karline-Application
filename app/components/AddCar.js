@@ -233,23 +233,6 @@ const AddCar = () => {
         onChangeText={(value) => setName(value)}/>
     </Animatable.View>
     
-    <Animatable.View
-      animation="fadeInUpBig"
-      style={styles.footer}>
-        <TouchableOpacity style={styles.settingBlock}
-        onPress={() => navigation.navigate("Profile")}>
-        <Text style={styles.text_footer}>
-        <Ionicons name="terminal-outline" size={24} color="black" 
-        />  License Plate Number 
-        </Text>
-        </TouchableOpacity>
-        <View style ={styles.line_dividers2}/>
-        <TextInput
-        placeholder="Example: KLN CRPL"
-        style={styles.input}
-        onChangeText={(value) => setName(value)}/>
-      </Animatable.View>
-
     <TouchableOpacity>
     <Animatable.View
     animation="fadeInUpBig"
@@ -428,7 +411,7 @@ const styles = StyleSheet.create({
     },
     input: { 
       fontSize: 16,
-      marginTop: 5
+      marginTop: 10
     }
 });
 export default AddCar;                          

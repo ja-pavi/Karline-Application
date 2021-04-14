@@ -112,7 +112,7 @@ const SignIn = ({navigation}) => {
     <Animatable.View 
     animation="slideInDown"
     style={styles.header}>
-      <Text style={styles.text_header}>Welcome to Klein Carpool</Text>
+      <Text style={styles.text_header}>Welcome to </Text>
       </Animatable.View>
     <Animatable.View 
       animation="fadeInUpBig"
@@ -193,21 +193,7 @@ const SignIn = ({navigation}) => {
         </LinearGradient>
         </TouchableOpacity>
 
-        <TouchableOpacity
-          onPress={() => navigation.navigate("Sign Up")}
-          style={[styles.signIn, {
-            borderColor: "#6DD5FA",
-            borderWidth: 1,
-            marginTop: 15
-          }]}
-          >
-
-          <Text style={[styles.textSign, {
-            color: '#6DD5FA'
-          }]}>Sign Up</Text>
-        </TouchableOpacity>
-
-        <Text style={styles.text}>* If you don't have an account, click "Sign Up" to make one.</Text>
+        <Text style={styles.text}>* If you don't have an account, contact the district's office.</Text>
       </View>
       </Animatable.View>
       </View>

@@ -15,19 +15,14 @@ const Splash = ({navigation}) => {
       end={{ x: 1, y: 1 }}
       style={styles.background}/>
     <View style={styles.header}>    
-    <Animatable.Image 
-      animation="bounceIn"
-      source={require("../../assets/splashlogo2.png")}
-      style={styles.logo}
-      resizeMode="stretch"
-      />
+   
       </View>
 
     <Animatable.View
       animation="fadeInUpBig" 
       style={styles.footer}> 
-          <Text style={styles.title}>The new way to carpool!</Text>
-          <Text style={styles.text}>Sign in with account</Text>
+          <Text style={styles.title}>The new way to pick up!</Text>
+          <Text style={styles.text}>Sign in with Skyward Account</Text>
       
       <View style={styles.button}>
       <TouchableOpacity 

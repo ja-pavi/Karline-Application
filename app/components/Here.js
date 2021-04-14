@@ -71,7 +71,6 @@ export default function Here({
       />
 
       <Text style={styles.updateText2}>  
-         Are you here yet?
       </Text>
 
       <StatusBar hidden/>
@@ -111,12 +110,12 @@ export default function Here({
           <Text
               style={[
                 StyleSheet.absoluteFillObject,
-                {fontSize: 40},styles.text,]}> 
+                {fontSize: 35},styles.text,]}> 
                 <MaterialIcons
                 name="location-on"
                 color="rgba(1,1,1,0.7)"
-                size={35}
-                /> I'm Here
+                size={30}
+                /> I'm Leaving
           </Text>
 
         </View>
@@ -183,7 +182,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     textAlignVertical: 'center',
     marginTop: 10,
-    marginBottom: 50,
+    marginBottom: 40,
     color: "#6DD5FA"
   },
     highlightText: {
