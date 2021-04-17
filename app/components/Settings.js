@@ -12,7 +12,7 @@ const Settings = ({navigation}) => {
 
       <StatusBar backgroundColor='transparent' barStyle="light-content"/>
       <LinearGradient
-        colors={['#6DD5FA', '#2993b9', '#FFFFFF']}
+        colors={['#6DD5FA', '#55c9f2', '#FFFFFF']}
         start={{ x: 1, y: 0 }}
         end={{ x: 0, y: 1 }}
         style={styles.background}/>

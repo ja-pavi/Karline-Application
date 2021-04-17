@@ -184,7 +184,7 @@ const styles = StyleSheet.create({
     textAlignVertical: 'center',
     marginTop: 10,
     marginBottom: 50,
-    color: "#6DD5FA"
+    color: "rgba(1,1,1,0.7)"
   },
     highlightText: {
       fontSize: 12,

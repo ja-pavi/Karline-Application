@@ -10,14 +10,14 @@ const Splash = ({navigation}) => {
     <View style={styles.container}>
        <StatusBar backgroundColor='transparent' barStyle="light-content"/>
       <LinearGradient
-      colors={['#6DD5FA', '#2993b9', '#FFFFFF']}
-      start={{ x: 0, y: 0 }}
-      end={{ x: 1, y: 1 }}
+      colors={['#2980B9', '#6DD5FA']}
+      start={{ x: 1, y: 1 }}
+      end={{ x: 0, y: 0}}
       style={styles.background}/>
     <View style={styles.header}>    
     <Animatable.Image 
       animation="bounceIn"
-      source={require("../../assets/splashlogo2.png")}
+      source={require("../../assets/splashlogo3.png")}
       style={styles.logo}
       resizeMode="stretch"
       />
@@ -26,8 +26,8 @@ const Splash = ({navigation}) => {
     <Animatable.View
       animation="fadeInUpBig" 
       style={styles.footer}> 
-          <Text style={styles.title}>The new way to carpool!</Text>
-          <Text style={styles.text}>Sign in with account</Text>
+          <Text style={styles.title}>The new way to pick-up!</Text>
+          <Text style={styles.text}>Sign in with Skyward account</Text>
       
       <View style={styles.button}>
       <TouchableOpacity 
@@ -80,12 +80,8 @@ const height_logo = height * 0.28;
       paddingHorizontal: 30
   },
   logo: {
-      width: 400,
-      height: 400,
-      shadowColor: '#303838',
-      shadowOffset: { width: 1, height: 1 },
-      shadowRadius: 5,
-      shadowOpacity: 0.5,
+      width: 350,
+      height: 350,
   },
   title: {
       color: "rgba(1,1,1,0.7)",

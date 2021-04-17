@@ -49,9 +49,9 @@ const AddStudent = () => {
   <View style={styles.container}>
      <StatusBar backgroundColor='transparent' barStyle="light-content"/>
   <LinearGradient
-    colors={['#6DD5FA', '#2993b9', '#FFFFFF']}
-    start={{ x: 0, y: 0 }}
-    end={{ x: 1, y: 1 }}
+    colors={['#2980B9', '#6DD5FA']}
+    start={{ x: 1, y: 1 }}
+    end={{ x: 0, y: 0}}
     style={styles.background}/>
 
   <Animatable.View 
