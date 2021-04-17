@@ -26,8 +26,8 @@ const Splash = ({navigation}) => {
     <Animatable.View
       animation="fadeInUpBig" 
       style={styles.footer}> 
-          <Text style={styles.title}>The new way to pick-up!</Text>
-          <Text style={styles.text}>Sign in with Skyward account</Text>
+          <Text style={styles.title}>The new way to pick up!</Text>
+          <Text style={styles.text}>Sign in with Skyward Account</Text>
       
       <View style={styles.button}>
       <TouchableOpacity 
