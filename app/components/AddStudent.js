@@ -57,7 +57,7 @@ const AddStudent = () => {
   <Animatable.View 
       animation="slideInDown"
      style={styles.header}>
-      <Text style={styles.text_header}>Add Student</Text>
+      <Text style={styles.text_header}>Student Information</Text>
       <View style={styles.buttonIcon}>
       <Ionicons name='person-add' size={90} color='#DCDCDC'/>
       </View>
@@ -77,13 +77,10 @@ const AddStudent = () => {
         placeholder="Student's Name"
         style={styles.input}
         onChangeText={(value) => setName(value)}>
-
+        <Text>Joshua Le</Text>
       </TextInput>
       
 
-        
-        
-      
       <View style={styles.input}>
         <RNPickerSelect
         style={styles.input}
@@ -124,7 +121,9 @@ const AddStudent = () => {
           { label: "Theiss", value: "Thiess" },
           { label: "Zwink", value: "Zwink" },
         ]}
-        onValueChange={(value) => setSchool(value)} />
+        onValueChange={(value) => setSchool(value)}>
+        <Text>Theiss</Text>
+        </RNPickerSelect>
       </View>
 
       <View style={styles.input}>
@@ -139,7 +138,9 @@ const AddStudent = () => {
           { label: "4th Grade", value: "4th Grade" },
           { label: "5th Grade", value: "5th Grade" },
         ]}
-        onValueChange={(value) => setGrade(value)} />
+        onValueChange={(value) => setGrade(value)}>
+        <Text>Kindergarten</Text>
+        </RNPickerSelect>
       </View>
     </View>
 
@@ -149,7 +150,7 @@ const AddStudent = () => {
           colors={['#6DD5FA', '#69d0f5']}
           style={styles.signIn} 
         >
-        <Text style={[styles.textSign, { color: '#fff'}]}>Add Student</Text>
+        <Text style={[styles.textSign, { color: '#fff'}]}>Confirm Student</Text>
         </LinearGradient>
         </View>
     </TouchableOpacity>
@@ -249,7 +250,7 @@ const styles = StyleSheet.create({
     marginBottom: 27.5,
     color: '#fff',
     fontWeight: 'bold',
-    fontSize: 32,
+    fontSize: 28,
 },
   signIn: {
     width: 150,

@@ -43,7 +43,7 @@ const Settings = ({navigation}) => {
       <TouchableOpacity style={styles.settingBlock}
       onPress={() => navigation.navigate("")}>
       <Text style={styles.text_footer}>
-      Settings                                                       <MaterialIcons
+      Parent Settings                                           <MaterialIcons
           name="navigate-next"
           color="black"
           size={24}
@@ -51,7 +51,7 @@ const Settings = ({navigation}) => {
       </Text>
       </TouchableOpacity>
       <Text style={styles.text_subfooter}>
-      Notifications, Account Information
+      Notifications, Parent Access, Parent Privileges 
       </Text>
       <View style ={styles.line_dividers}/>
 

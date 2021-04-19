@@ -70,7 +70,8 @@ export default function Here({
         autoPlay
       />
 
-      <Text style={styles.updateText2}>  
+      <Text style={styles.updateText2}>
+      Ready for pickup? 
       </Text>
 
       <StatusBar hidden/>
@@ -110,12 +111,12 @@ export default function Here({
           <Text
               style={[
                 StyleSheet.absoluteFillObject,
-                {fontSize: 35},styles.text,]}> 
+                {fontSize: 30},styles.text,]}> 
                 <MaterialIcons
                 name="location-on"
                 color="rgba(1,1,1,0.7)"
-                size={30}
-                /> I'm Leaving
+                size={28}
+                /> Leaving Now
           </Text>
 
         </View>
@@ -183,7 +184,7 @@ const styles = StyleSheet.create({
     textAlignVertical: 'center',
     marginTop: 10,
     marginBottom: 40,
-    color: "#6DD5FA"
+    color: "rgba(1,1,1,0.7)"
   },
     highlightText: {
       fontSize: 12,

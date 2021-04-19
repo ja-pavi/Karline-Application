@@ -112,7 +112,7 @@ const SignIn = ({navigation}) => {
     <Animatable.View 
     animation="slideInDown"
     style={styles.header}>
-      <Text style={styles.text_header}>Welcome to </Text>
+      <Text style={styles.text_header}>Welcome to Karline </Text>
       </Animatable.View>
     <Animatable.View 
       animation="fadeInUpBig"
@@ -233,7 +233,7 @@ const styles = StyleSheet.create({
     text_header: {
         color: '#fff',
         fontWeight: 'bold',
-        fontSize: 28
+        fontSize: 32
     },
     text_footer: {
         color: 'black',
