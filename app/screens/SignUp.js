@@ -19,7 +19,7 @@ import { NavigationContainer } from '@react-navigation/native';
 const SignUp = ({navigation}) => {
 
   const [data, setData] = React.useState({
-    email: '',
+    email: '@gmail.com',
     password: '',
     confirm_password: '',
     check_textInputChange: false,
